@@ -50,7 +50,8 @@
     "@syncfusion/ej2-richtexteditor": "17.2.34",
     "@syncfusion/ej2-schedule": "17.2.34",
     "@syncfusion/ej2-splitbuttons": "17.2.34",
-    "@syncfusion/ej2-treemap": "17.2.34"
+    "@syncfusion/ej2-treemap": "17.2.34",
+    "@types/node": "^12.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
