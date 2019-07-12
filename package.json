@@ -1,0 +1,62 @@
+{
+  "name": "ej2-fidan-ui-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html --open --no-cache",
+    "build": "parcel build index.html --no-cache",
+    "yalc-link": "yalc link @fidanjs/runtime & yalc link @fidanjs/jsx & yalc link @fidanjs/babel-plugin-fidan-jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismail-codar/ej2-fidan-ui-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ismail-codar/ej2-fidan-ui-components/issues"
+  },
+  "homepage": "https://github.com/ismail-codar/ej2-fidan-ui-components#readme",
+  "dependencies": {
+    "@fidanjs/jsx": "^0.0.11",
+    "@fidanjs/router": "^0.0.9",
+    "@fidanjs/runtime": "^0.0.24",
+    "@syncfusion/ej2": "17.2.34",
+    "@syncfusion/ej2-base": "^17.2.34",
+    "@syncfusion/ej2-buttons": "^17.2.34",
+    "@syncfusion/ej2-calendars": "17.2.34",
+    "@syncfusion/ej2-charts": "17.2.34",
+    "@syncfusion/ej2-circulargauge": "17.2.34",
+    "@syncfusion/ej2-compression": "17.2.34",
+    "@syncfusion/ej2-data": "17.2.34",
+    "@syncfusion/ej2-diagrams": "17.2.34",
+    "@syncfusion/ej2-documenteditor": "17.2.34",
+    "@syncfusion/ej2-dropdowns": "17.2.34",
+    "@syncfusion/ej2-excel-export": "17.2.34",
+    "@syncfusion/ej2-file-utils": "17.2.34",
+    "@syncfusion/ej2-grids": "17.2.34",
+    "@syncfusion/ej2-heatmap": "17.2.34",
+    "@syncfusion/ej2-inputs": "17.2.34",
+    "@syncfusion/ej2-lineargauge": "17.2.34",
+    "@syncfusion/ej2-lists": "17.2.34",
+    "@syncfusion/ej2-maps": "17.2.34",
+    "@syncfusion/ej2-navigations": "17.2.34",
+    "@syncfusion/ej2-notifications": "17.2.34",
+    "@syncfusion/ej2-pdf-export": "17.2.34",
+    "@syncfusion/ej2-pdfviewer": "17.2.34",
+    "@syncfusion/ej2-popups": "17.2.34",
+    "@syncfusion/ej2-richtexteditor": "17.2.34",
+    "@syncfusion/ej2-schedule": "17.2.34",
+    "@syncfusion/ej2-splitbuttons": "17.2.34",
+    "@syncfusion/ej2-treemap": "17.2.34"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@fidanjs/babel-plugin-fidan-jsx": "0.0.10",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.22.4",
+    "typescript": "^3.5.3"
+  }
+}
