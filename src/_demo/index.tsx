@@ -7,6 +7,8 @@ import { SfButton } from "../components/Button";
 import { SfAccordion } from "../components/Accordion";
 import { SfTab } from "../components/Tab";
 import { SfAutoComplete } from "../components/AutoComplete";
+import { SfBarcodeGenerator } from "../components/BarcodeGenerator";
+import { ValidateEvent } from "@syncfusion/ej2-barcode-generator";
 
 const view1: any = (
   <div>
@@ -72,8 +74,21 @@ const view1: any = (
       dataSource={(data as any).sportsData}
       placeholder="e.g. Basketball"
     />
+    <h2>BarcodeGenerator</h2>
+    <SfBarcodeGenerator
+      width="200px"
+      height="150px"
+      type="Ean13"
+      value="9735940564824"
+      mode="SVG"
+      invalid={invalidBarcodeInput}
+    />
   </div>
 );
+
+function invalidBarcodeInput(args: ValidateEvent): void {
+  console.log(args);
+}
 
 const appMain = document.getElementById("app");
 appMain.appendChild(view1);

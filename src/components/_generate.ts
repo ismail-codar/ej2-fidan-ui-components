@@ -7,6 +7,8 @@ interface GenModel {
   imp: string;
   view?: any;
   deferred?: boolean;
+  useId?: boolean;
+  TODO?: boolean;
 }
 
 const compnents: GenModel[] = [
@@ -15,6 +17,24 @@ const compnents: GenModel[] = [
     imp: "ej2-dropdowns",
     view: '<input type="text" />',
     deferred: true
+  },
+  {
+    component: "Avatar",
+    imp: "ej2-",
+    view: "",
+    TODO: true
+  },
+  {
+    component: "Badge",
+    imp: "ej2-",
+    view: "",
+    TODO: true
+  },
+  {
+    component: "BarcodeGenerator",
+    imp: "ej2-barcode-generator",
+    deferred: true,
+    useId: true
   },
   {
     component: "Button",
@@ -34,7 +54,10 @@ const compnents: GenModel[] = [
 const generateComponentCode = (opt: GenModel) => {
   const model = opt.model || opt.component + "Model";
   const cmp = opt.component;
-  const view = opt.view || "<div />";
+  let view = opt.view || "<div />";
+  if (opt.useId) {
+    view = "<div id={props.id || Math.random()} />";
+  }
   const deferred = opt.deferred;
   return `import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}";
 
@@ -61,6 +84,7 @@ export const Sf${cmp} = (props: ${model} & ComponentBase) => {
 };
 
 compnents.forEach(cmp => {
+  if (cmp.TODO) return;
   const code = generateComponentCode(cmp);
   const file = path.resolve(__dirname, cmp.component) + ".tsx";
   console.log(file);
