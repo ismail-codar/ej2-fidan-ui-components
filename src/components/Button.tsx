@@ -7,7 +7,7 @@ export const SfButton = (props: ButtonModel & ComponentBase) => {
 
   let _component: Button = new Button(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

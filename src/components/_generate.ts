@@ -42,6 +42,10 @@ const compnents: GenModel[] = [
     view: "<button>{props.children}</button>"
   },
   {
+    component: "Calendar",
+    imp: "ej2-calendars"
+  },
+  {
     component: "Accordion",
     imp: "ej2-navigations"
   },
@@ -56,7 +60,7 @@ const generateComponentCode = (opt: GenModel) => {
   const cmp = opt.component;
   let view = opt.view || "<div />";
   if (opt.useId) {
-    view = "<div id={props.id || Math.random()} />";
+    view = view.replace(" ", " id={props.id || Math.random()} ");
   }
   const deferred = opt.deferred;
   return `import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}";
@@ -71,11 +75,11 @@ export const Sf${cmp} = (props: ${model} & ComponentBase) => {
       ? `window.requestAnimationFrame(() => {
     let _component: ${cmp} = new ${cmp}(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);
+    props && props.onInit && props.onInit(props);
   });`
       : `let _component: ${cmp} = new ${cmp}(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);`
+    props && props.onInit && props.onInit(props);`
   }
 
   return _view;

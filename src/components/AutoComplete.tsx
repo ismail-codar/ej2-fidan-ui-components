@@ -8,7 +8,7 @@ export const SfAutoComplete = (props: AutoCompleteModel & ComponentBase) => {
   window.requestAnimationFrame(() => {
     let _component: AutoComplete = new AutoComplete(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);
+    props && props.onInit && props.onInit(props);
   });
 
   return _view;

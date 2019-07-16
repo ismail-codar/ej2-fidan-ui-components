@@ -7,7 +7,7 @@ export const SfTab = (props: TabModel & ComponentBase) => {
 
   let _component: Tab = new Tab(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

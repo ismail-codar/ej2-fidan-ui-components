@@ -7,7 +7,7 @@ export const SfAccordion = (props: AccordionModel & ComponentBase) => {
 
   let _component: Accordion = new Accordion(props);
     _component.appendTo(_view);
-    props.onInit && props.onInit(props);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };
