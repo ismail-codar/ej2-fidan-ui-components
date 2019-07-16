@@ -2,6 +2,7 @@ import { enableRipple } from "@syncfusion/ej2-base";
 enableRipple(true);
 
 import * as data from "./dataSource.json";
+import * as chipsData from "./chipsData.json";
 
 import { SfButton } from "../components/Button";
 import { SfAccordion } from "../components/Accordion";
@@ -12,6 +13,11 @@ import { SfCalendar } from "../components/Calendar";
 import { ChangedEventArgs } from "@syncfusion/ej2-calendars";
 import { ILoadedEventArgs } from "@syncfusion/ej2-charts";
 import { SfChart } from "../components/Chart";
+import { SfChipList } from "../components/ChipList";
+import { SfCircularGauge } from "../components/CircularGauge";
+import { SfColorPicker } from "../components/ColorPicker";
+import { SfComboBox } from "../components/ComboBox";
+import { SfContextMenu } from "../components/ContextMenu";
 
 const view1: any = (
   <div>
@@ -151,6 +157,128 @@ const view1: any = (
         title: "Average Sales Comparison",
         width: "100%",
         load: (args: ILoadedEventArgs) => {}
+      }}
+    />
+    <h1>Chips</h1>
+    <SfChipList
+      {...{
+        chips: chipsData.choiceData,
+        selection: "Single",
+        cssClass: "e-outline",
+        selectedChips: [1]
+      }}
+    />
+    <h1>CircularGauge</h1>
+    <SfCircularGauge
+      {...{
+        // custom code end
+        axes: [
+          {
+            radius: "80%",
+            startAngle: 230,
+            endAngle: 130,
+            majorTicks: {
+              width: 0
+            },
+            lineStyle: { width: 8 },
+            minorTicks: {
+              width: 0
+            },
+            labelStyle: {
+              font: {
+                fontFamily: "Roboto",
+                size: "12px",
+                fontWeight: "Regular"
+              },
+              offset: -5
+            },
+            pointers: [
+              {
+                value: 60,
+                radius: "60%",
+                pointerWidth: 7,
+                cap: {
+                  radius: 8,
+                  border: { width: 0 }
+                },
+                needleTail: {
+                  length: "25%"
+                }
+              }
+            ]
+          }
+        ]
+      }}
+    />
+    <h1>ColorPicker</h1>
+    <SfColorPicker
+      {...{
+        value: "#008000",
+        mode: "Palette",
+        modeSwitcher: false,
+        inline: true,
+        showButtons: false,
+        change: e => console.log(e)
+      }}
+    />
+    <h1>CompoBox</h1>
+    <SfComboBox
+      {...{
+        popupHeight: "230px",
+        index: 2,
+        placeholder: "Select a game",
+        change: e => console.log(e)
+      }}
+    />
+    <h1>ContextMenu</h1>
+    <div id="contextmenutarget">
+      Right click/Touch hold to open the ContextMenu
+    </div>
+    <ul id="contextmenu" />
+    <SfContextMenu
+      {...{
+        target: "#contextmenutarget",
+        items: [
+          {
+            text: "Cut",
+            iconCss: "e-cm-icons e-cut"
+          },
+          {
+            text: "Copy",
+            iconCss: "e-cm-icons e-copy"
+          },
+          {
+            text: "Paste",
+            iconCss: "e-cm-icons e-paste",
+            items: [
+              {
+                text: "Paste Text",
+                iconCss: "e-cm-icons e-pastetext"
+              },
+              {
+                text: "Paste Special",
+                iconCss: "e-cm-icons e-pastespecial"
+              }
+            ]
+          },
+          {
+            separator: true
+          },
+          {
+            text: "Link",
+            iconCss: "e-cm-icons e-link"
+          },
+          {
+            text: "New Comment",
+            iconCss: "e-cm-icons e-comment"
+          }
+        ],
+        // Event triggers while rendering each menu item where “Link” menu item is disabled
+        beforeItemRender: args => {
+          // if (args.item.text === 'Link') {
+          //     args.element.classList.add('e-disabled');
+          // }
+        }
       }}
     />
   </div>

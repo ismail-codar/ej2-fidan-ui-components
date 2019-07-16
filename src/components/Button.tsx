@@ -1,4 +1,4 @@
-import { Button, ButtonModel } from "@syncfusion/ej2-buttons"undefined;
+import { Button, ButtonModel } from "@syncfusion/ej2-buttons";
 
 import { ComponentBase } from "../_base";
 

@@ -1,4 +1,4 @@
-import { Accordion, AccordionModel } from "@syncfusion/ej2-navigations"undefined;
+import { Accordion, AccordionModel } from "@syncfusion/ej2-navigations";
 
 import { ComponentBase } from "../_base";
 

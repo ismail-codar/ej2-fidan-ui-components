@@ -1,12 +1,12 @@
-import { Calendar, CalendarModel } from "@syncfusion/ej2-calendars";
+import { ColorPicker, ColorPickerModel } from "@syncfusion/ej2-inputs";
 
 import { ComponentBase } from "../_base";
 
-export const SfCalendar = (props: CalendarModel & ComponentBase) => {
+export const SfColorPicker = (props: ColorPickerModel & ComponentBase) => {
   const _view = <div />;
 
   window.requestAnimationFrame(() => {
-    let _component: Calendar = new Calendar(props);
+    let _component: ColorPicker = new ColorPicker(props);
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

@@ -14,6 +14,10 @@ interface GenModel {
 
 const compnents: GenModel[] = [
   {
+    component: "Accordion",
+    imp: "ej2-navigations"
+  },
+  {
     component: "AutoComplete",
     imp: "ej2-dropdowns",
     view: '<input type="text" />',
@@ -65,8 +69,28 @@ import {
 Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
-    component: "Accordion",
-    imp: "ej2-navigations"
+    component: "ChipList",
+    imp: "ej2-buttons"
+  },
+  {
+    component: "CircularGauge",
+    imp: "ej2-circulargauge"
+  },
+  {
+    component: "ColorPicker",
+    imp: "ej2-inputs",
+    deferred: true
+  },
+  {
+    component: "ComboBox",
+    imp: "ej2-dropdowns",
+    deferred: true
+  },
+  {
+    component: "ContextMenu",
+    imp: "ej2-navigations",
+    view: "<ul />",
+    deferred: true
   },
   {
     component: "Tab",
@@ -82,9 +106,9 @@ const generateComponentCode = (opt: GenModel) => {
     view = view.replace(" ", " id={props.id || Math.random()} ");
   }
   const deferred = opt.deferred;
-  return `import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}"${
-    opt.importExtra
-  };
+  return `import { ${cmp}, ${model} } from "@syncfusion/${
+    opt.imp
+  }"${opt.importExtra || ""};
 
 import { ComponentBase } from "../_base";
 

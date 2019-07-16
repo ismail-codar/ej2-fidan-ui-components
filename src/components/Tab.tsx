@@ -1,4 +1,4 @@
-import { Tab, TabModel } from "@syncfusion/ej2-navigations"undefined;
+import { Tab, TabModel } from "@syncfusion/ej2-navigations";
 
 import { ComponentBase } from "../_base";
 
