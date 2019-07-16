@@ -3,7 +3,7 @@ import { Tab, TabModel } from "@syncfusion/ej2-navigations";
 import { ComponentBase } from "../_base";
 
 export const SfTab = (props: TabModel & ComponentBase) => {
-  const _view = <div />;
+  const _view = <div>{props.children}</div>;
 
   let _component: Tab = new Tab(props);
     _component.appendTo(_view);

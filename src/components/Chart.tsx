@@ -9,7 +9,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);;
 import { ComponentBase } from "../_base";
 
 export const SfChart = (props: ChartModel & ComponentBase) => {
-  const _view = <div />;
+  const _view = <div>{props.children}</div>;
 
   let _component: Chart = new Chart(props);
     _component.appendTo(_view);

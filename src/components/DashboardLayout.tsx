@@ -1,12 +1,12 @@
-import { ComboBox, ComboBoxModel } from "@syncfusion/ej2-dropdowns";
+import { DashboardLayout, DashboardLayoutModel } from "@syncfusion/ej2-layouts";
 
 import { ComponentBase } from "../_base";
 
-export const SfComboBox = (props: ComboBoxModel & ComponentBase) => {
+export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase) => {
   const _view = <div>{props.children}</div>;
 
   window.requestAnimationFrame(() => {
-    let _component: ComboBox = new ComboBox(props);
+    let _component: DashboardLayout = new DashboardLayout(props);
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

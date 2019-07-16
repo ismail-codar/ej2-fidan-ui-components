@@ -93,6 +93,11 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     deferred: true
   },
   {
+    component: "DashboardLayout",
+    imp: "ej2-layouts",
+    deferred: true
+  },
+  {
     component: "Tab",
     imp: "ej2-navigations"
   }
@@ -101,9 +106,9 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
 const generateComponentCode = (opt: GenModel) => {
   const model = opt.model || opt.component + "Model";
   const cmp = opt.component;
-  let view = opt.view || "<div />";
+  let view = opt.view || "<div>{props.children}</div>";
   if (opt.useId) {
-    view = view.replace(" ", " id={props.id || Math.random()} ");
+    view = view.replace(">", " id={props.id || Math.random()}>");
   }
   const deferred = opt.deferred;
   return `import { ${cmp}, ${model} } from "@syncfusion/${
