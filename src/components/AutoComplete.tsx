@@ -1,4 +1,4 @@
-import { AutoComplete, AutoCompleteModel } from "@syncfusion/ej2-dropdowns";
+import { AutoComplete, AutoCompleteModel } from "@syncfusion/ej2-dropdowns"undefined;
 
 import { ComponentBase } from "../_base";
 

@@ -8,6 +8,7 @@ interface GenModel {
   view?: any;
   deferred?: boolean;
   useId?: boolean;
+  importExtra?: string;
   TODO?: boolean;
 }
 
@@ -43,7 +44,25 @@ const compnents: GenModel[] = [
   },
   {
     component: "Calendar",
-    imp: "ej2-calendars"
+    imp: "ej2-calendars",
+    deferred: true
+  },
+  {
+    component: "Card",
+    imp: "ej2-",
+    view: "",
+    TODO: true
+  },
+  {
+    component: "Chart",
+    imp: "ej2-charts/dist/es6/ej2-charts.es5.js",
+    importExtra: `
+import {
+  AreaSeries,
+  DateTime,
+  Legend
+} from "@syncfusion/ej2-charts/dist/es6/ej2-charts.es2015.js";
+Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "Accordion",
@@ -63,7 +82,9 @@ const generateComponentCode = (opt: GenModel) => {
     view = view.replace(" ", " id={props.id || Math.random()} ");
   }
   const deferred = opt.deferred;
-  return `import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}";
+  return `import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}"${
+    opt.importExtra
+  };
 
 import { ComponentBase } from "../_base";
 

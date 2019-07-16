@@ -1,4 +1,4 @@
-import { BarcodeGenerator, BarcodeGeneratorModel } from "@syncfusion/ej2-barcode-generator";
+import { BarcodeGenerator, BarcodeGeneratorModel } from "@syncfusion/ej2-barcode-generator"undefined;
 
 import { ComponentBase } from "../_base";
 
