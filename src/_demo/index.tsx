@@ -1,13 +1,18 @@
 import { enableRipple } from "@syncfusion/ej2-base";
 enableRipple(true);
 
+import * as data from "./dataSource.json";
+
 import { SfButton } from "../components/Button";
 import { SfAccordion } from "../components/Accordion";
 import { SfTab } from "../components/Tab";
+import { SfAutoComplete } from "../components/AutoComplete";
 
 const view1: any = (
   <div>
+    <h1>Button</h1>
     <SfButton isPrimary={true}>Test</SfButton>
+    <h1>Accordion</h1>
     <SfAccordion
       items={[
         {
@@ -28,6 +33,7 @@ const view1: any = (
         }
       ]}
     />
+    <h1>Tab</h1>
     <SfTab
       items={[
         {
@@ -60,6 +66,11 @@ const view1: any = (
             "Mountain View, California, was acquired by Facebook Inc. on February 19, 2014, for approximately US$19.3 billion."
         }
       ]}
+    />
+    <h2>AutoComplete</h2>
+    <SfAutoComplete
+      dataSource={(data as any).sportsData}
+      placeholder="e.g. Basketball"
     />
   </div>
 );
