@@ -98,6 +98,30 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     deferred: true
   },
   {
+    component: "DatePicker",
+    imp: "ej2-calendars",
+    view: '<input type="text" />',
+    deferred: true
+  },
+  {
+    component: "DateRangePicker",
+    view: '<input type="text" />',
+    imp: "ej2-calendars",
+    deferred: true
+  },
+  {
+    component: "DateTimePicker",
+    view: '<input type="text" />',
+    imp: "ej2-calendars",
+    deferred: true
+  },
+  {
+    component: "TimePicker",
+    view: '<input type="text" />',
+    imp: "ej2-calendars",
+    deferred: true
+  },
+  {
     component: "Tab",
     imp: "ej2-navigations"
   }

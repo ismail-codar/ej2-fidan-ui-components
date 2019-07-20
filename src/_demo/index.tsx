@@ -19,6 +19,10 @@ import { SfColorPicker } from "../components/ColorPicker";
 import { SfComboBox } from "../components/ComboBox";
 import { SfContextMenu } from "../components/ContextMenu";
 import { SfDashboardLayout } from "../components/DashboardLayout";
+import { SfDatePicker } from "../components/DatePicker";
+import { SfDateRangePicker } from "../components/DateRangePicker";
+import { SfDateTimePicker } from "../components/DateTimePicker";
+import { SfTimePicker } from "../components/TimePicker";
 
 const view1: any = (
   <div>
@@ -282,7 +286,7 @@ const view1: any = (
         }
       }}
     />
-    <h1>DashboardLayout</h1>
+    {/* <h1>DashboardLayout</h1>
     <SfDashboardLayout
       {...{
         view: "#defaultLayout",
@@ -395,7 +399,20 @@ const view1: any = (
           <div class="text-align">7</div>
         </div>
       </div>
-    </SfDashboardLayout>
+    </SfDashboardLayout> */}
+    <h1>DatePicker</h1>
+    <SfDatePicker />
+    <h1>DateRangePicker</h1>
+    <SfDateRangePicker
+      {...{
+        min: new Date("1/15/2017"),
+        max: new Date("12/20/2017")
+      }}
+    />
+    <h1>DateTimePicker</h1>
+    <SfDateTimePicker />
+    <h1>TimePicker</h1>
+    <SfTimePicker />
   </div>
 );
 
