@@ -122,8 +122,156 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     deferred: true
   },
   {
+    component: "Diagram",
+    imp: "ej2-diagrams"
+  },
+  {
+    component: "Dialog",
+    imp: "ej2-popups"
+  },
+  {
+    component: "DocumentEditorContainer",
+    imp: "ej2-documenteditor"
+  },
+  {
+    component: "DropDownList",
+    imp: "ej2-dropdowns"
+  },
+  {
+    component: "FileManager",
+    imp: "ej2-filemanager"
+  },
+  {
+    component: "FormValidator",
+    imp: "ej2-inputs"
+  },
+  {
+    component: "Gantt",
+    imp: "ej2-gantt"
+  },
+  {
+    component: "Grid",
+    imp: "ej2-grids"
+  },
+  {
+    component: "HeatMap",
+    imp: "ej2-heatmap"
+  },
+  {
+    component: "InPlaceEditor",
+    imp: "ej2-inplace-editor"
+  },
+  {
+    component: "LinearGauge",
+    imp: "ej2-lineargauge"
+  },
+  {
+    component: "ListBox",
+    imp: "ej2-dropdowns"
+  },
+  {
+    component: "ListView",
+    imp: "ej2-lists"
+  },
+  {
+    component: "Maps",
+    imp: "ej2-maps"
+  },
+  {
+    component: "MaskedTextBox",
+    imp: "ej2-inputs"
+  },
+  {
+    component: "Menu",
+    imp: "ej2-navigations"
+  },
+  {
+    component: "MultiSelect",
+    imp: "ej2-dropdowns"
+  },
+  {
+    component: "NumericTextBox",
+    imp: "ej2-inputs"
+  },
+  {
+    component: "PdfViewer",
+    imp: "ej2-pdfviewer"
+  },
+  {
+    component: "PivotView",
+    imp: "ej2-pivotview"
+  },
+  {
+    component: "QueryBuilder",
+    imp: "ej2-querybuilder"
+  },
+  {
+    component: "RangeNavigator",
+    imp: "ej2-charts"
+  },
+  {
+    component: "RichTextEditor",
+    imp: "ej2-richtexteditor"
+  },
+  {
+    component: "Schedule",
+    imp: "ej2-schedule"
+  },
+  {
+    component: "Sidebar",
+    imp: "ej2-navigations"
+  },
+  {
+    component: "Slider",
+    imp: "ej2-inputs"
+  },
+  {
+    component: "Smithchart",
+    imp: "ej2-charts"
+  },
+  {
+    component: "Sparkline",
+    imp: "ej2-charts"
+  },
+  {
+    component: "Splitter",
+    imp: "ej2-layouts"
+  },
+  {
+    component: "StockChart",
+    imp: "ej2-charts"
+  },
+  {
     component: "Tab",
     imp: "ej2-navigations"
+  },
+  {
+    component: "TextBox",
+    imp: "ej2-inputs"
+  },
+  {
+    component: "Toast",
+    imp: "ej2-notifications"
+  },
+  {
+    component: "Toolbar",
+    imp: "ej2-navigations"
+  },
+  {
+    component: "Tooltip",
+    imp: "ej2-popups"
+  },
+  {
+    component: "TreeGrid",
+    imp: "ej2-treegrid"
+  },
+  {
+    component: "TreeMap",
+    imp: "ej2-treemap"
+  },
+  {
+    component: "Uploader",
+    imp: "ej2-inputs"
   }
 ];
 

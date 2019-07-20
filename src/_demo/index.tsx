@@ -26,7 +26,7 @@ import { SfTimePicker } from "../components/TimePicker";
 
 const view1: any = (
   <div>
-    <h1>Button</h1>
+    {/* <h1>Button</h1>
     <SfButton isPrimary={true}>Test</SfButton>
     <h1>Accordion</h1>
     <SfAccordion
@@ -286,7 +286,7 @@ const view1: any = (
         }
       }}
     />
-    {/* <h1>DashboardLayout</h1>
+    <h1>DashboardLayout</h1>
     <SfDashboardLayout
       {...{
         view: "#defaultLayout",
@@ -399,7 +399,7 @@ const view1: any = (
           <div class="text-align">7</div>
         </div>
       </div>
-    </SfDashboardLayout> */}
+    </SfDashboardLayout>
     <h1>DatePicker</h1>
     <SfDatePicker />
     <h1>DateRangePicker</h1>
@@ -412,7 +412,8 @@ const view1: any = (
     <h1>DateTimePicker</h1>
     <SfDateTimePicker />
     <h1>TimePicker</h1>
-    <SfTimePicker />
+    <SfTimePicker /> */}
+    <h1>dd</h1>
   </div>
 );
 
