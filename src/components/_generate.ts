@@ -219,7 +219,14 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "Sidebar",
-    imp: "ej2-navigations"
+    imp: "ej2-navigations",
+    view: `<aside id="default-sidebar">
+    <div className="title-header">
+      <div style="display:inline-block"> Sidebar </div>
+      <span id="close" className="e-icons" />
+    </div>
+    <div className="sub-title">Place your primary content here...</div>
+  </aside>`
   },
   {
     component: "Slider",

@@ -23,6 +23,10 @@ import { SfDatePicker } from "../components/DatePicker";
 import { SfDateRangePicker } from "../components/DateRangePicker";
 import { SfDateTimePicker } from "../components/DateTimePicker";
 import { SfTimePicker } from "../components/TimePicker";
+import { SfSidebar } from "../components/Sidebar";
+
+import "./sidebar/sidebar.css";
+import { SidebarDemo } from "./sidebar/Sidebar";
 
 const view1: any = (
   <div>
@@ -414,6 +418,7 @@ const view1: any = (
     <h1>TimePicker</h1>
     <SfTimePicker /> */}
     <h1>dd</h1>
+    <SidebarDemo />
   </div>
 );
 
