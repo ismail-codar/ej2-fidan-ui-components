@@ -2,7 +2,7 @@ import { ComboBox, ComboBoxModel } from "@syncfusion/ej2-dropdowns";
 
 import { ComponentBase } from "../_base";
 
-export const SfComboBox = (props: ComboBoxModel & ComponentBase) => {
+export const SfComboBox = (props: ComboBoxModel & ComponentBase<ComboBox>) => {
   const _view = <div>{props.children}</div>;
 
   window.requestAnimationFrame(() => {

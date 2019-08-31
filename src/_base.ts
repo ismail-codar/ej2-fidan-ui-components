@@ -1,5 +1,6 @@
-export interface ComponentBase {
+export interface ComponentBase<T> {
   id?: any;
   children?: any;
-  onInit?<T>(props: T);
+  component?: T;
+  onInit?(props: ComponentBase<T>);
 }

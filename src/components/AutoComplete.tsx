@@ -2,7 +2,7 @@ import { AutoComplete, AutoCompleteModel } from "@syncfusion/ej2-dropdowns";
 
 import { ComponentBase } from "../_base";
 
-export const SfAutoComplete = (props: AutoCompleteModel & ComponentBase) => {
+export const SfAutoComplete = (props: AutoCompleteModel & ComponentBase<AutoComplete>) => {
   const _view = <input type="text" />;
 
   window.requestAnimationFrame(() => {

@@ -2,7 +2,7 @@ import { DashboardLayout, DashboardLayoutModel } from "@syncfusion/ej2-layouts";
 
 import { ComponentBase } from "../_base";
 
-export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase) => {
+export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase<DashboardLayout>) => {
   const _view = <div>{props.children}</div>;
 
   window.requestAnimationFrame(() => {

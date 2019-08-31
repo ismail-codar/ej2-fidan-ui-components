@@ -220,13 +220,19 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "Sidebar",
     imp: "ej2-navigations",
-    view: `<aside id="default-sidebar">
-    <div className="title-header">
-      <div style="display:inline-block"> Sidebar </div>
-      <span id="close" className="e-icons" />
-    </div>
-    <div className="sub-title">Place your primary content here...</div>
-  </aside>`
+    view: `(
+      <aside id="default-sidebar">
+        <div className="title-header">
+          <div style="display:inline-block"> Sidebar </div>
+          <span
+            id="close"
+            className="e-icons"
+            onClick={() => _component.hide()}
+          />
+        </div>
+        <div className="sub-title">{props.children}</div>
+      </aside>
+    )`
   },
   {
     component: "Slider",
@@ -296,7 +302,7 @@ const generateComponentCode = (opt: GenModel) => {
 
 import { ComponentBase } from "../_base";
 
-export const Sf${cmp} = (props: ${model} & ComponentBase) => {
+export const Sf${cmp} = (props: ${model} & ComponentBase<${cmp}>) => {
   const _view = ${view};
 
   ${
@@ -308,6 +314,7 @@ export const Sf${cmp} = (props: ${model} & ComponentBase) => {
   });`
       : `let _component: ${cmp} = new ${cmp}(props);
     _component.appendTo(_view);
+    props.component = _component;
     props && props.onInit && props.onInit(props);`
   }
 

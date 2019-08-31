@@ -2,7 +2,7 @@ import { TimePicker, TimePickerModel } from "@syncfusion/ej2-calendars";
 
 import { ComponentBase } from "../_base";
 
-export const SfTimePicker = (props: TimePickerModel & ComponentBase) => {
+export const SfTimePicker = (props: TimePickerModel & ComponentBase<TimePicker>) => {
   const _view = <input type="text" />;
 
   window.requestAnimationFrame(() => {

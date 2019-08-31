@@ -2,7 +2,7 @@ import { ColorPicker, ColorPickerModel } from "@syncfusion/ej2-inputs";
 
 import { ComponentBase } from "../_base";
 
-export const SfColorPicker = (props: ColorPickerModel & ComponentBase) => {
+export const SfColorPicker = (props: ColorPickerModel & ComponentBase<ColorPicker>) => {
   const _view = <div>{props.children}</div>;
 
   window.requestAnimationFrame(() => {

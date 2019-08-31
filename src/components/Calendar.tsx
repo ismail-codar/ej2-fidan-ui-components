@@ -2,7 +2,7 @@ import { Calendar, CalendarModel } from "@syncfusion/ej2-calendars";
 
 import { ComponentBase } from "../_base";
 
-export const SfCalendar = (props: CalendarModel & ComponentBase) => {
+export const SfCalendar = (props: CalendarModel & ComponentBase<Calendar>) => {
   const _view = <div>{props.children}</div>;
 
   window.requestAnimationFrame(() => {

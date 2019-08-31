@@ -417,7 +417,6 @@ const view1: any = (
     <SfDateTimePicker />
     <h1>TimePicker</h1>
     <SfTimePicker /> */}
-    <h1>dd</h1>
     <SidebarDemo />
   </div>
 );

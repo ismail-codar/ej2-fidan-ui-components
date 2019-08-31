@@ -2,7 +2,7 @@ import { DateTimePicker, DateTimePickerModel } from "@syncfusion/ej2-calendars";
 
 import { ComponentBase } from "../_base";
 
-export const SfDateTimePicker = (props: DateTimePickerModel & ComponentBase) => {
+export const SfDateTimePicker = (props: DateTimePickerModel & ComponentBase<DateTimePicker>) => {
   const _view = <input type="text" />;
 
   window.requestAnimationFrame(() => {

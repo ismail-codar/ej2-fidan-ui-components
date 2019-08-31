@@ -2,7 +2,7 @@ import { ContextMenu, ContextMenuModel } from "@syncfusion/ej2-navigations";
 
 import { ComponentBase } from "../_base";
 
-export const SfContextMenu = (props: ContextMenuModel & ComponentBase) => {
+export const SfContextMenu = (props: ContextMenuModel & ComponentBase<ContextMenu>) => {
   const _view = <ul />;
 
   window.requestAnimationFrame(() => {

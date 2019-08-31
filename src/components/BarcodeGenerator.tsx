@@ -2,7 +2,7 @@ import { BarcodeGenerator, BarcodeGeneratorModel } from "@syncfusion/ej2-barcode
 
 import { ComponentBase } from "../_base";
 
-export const SfBarcodeGenerator = (props: BarcodeGeneratorModel & ComponentBase) => {
+export const SfBarcodeGenerator = (props: BarcodeGeneratorModel & ComponentBase<BarcodeGenerator>) => {
   const _view = <div id={props.id || Math.random()}>{props.children}</div>;
 
   window.requestAnimationFrame(() => {
