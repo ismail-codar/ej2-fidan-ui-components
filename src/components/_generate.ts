@@ -203,6 +203,12 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     imp: "ej2-pivotview"
   },
   {
+    component: "RadioButton",
+    imp: "ej2-buttons",
+    view: '<input type="radio" id={props.id} />',
+    deferred: true
+  },
+  {
     component: "QueryBuilder",
     imp: "ej2-querybuilder"
   },

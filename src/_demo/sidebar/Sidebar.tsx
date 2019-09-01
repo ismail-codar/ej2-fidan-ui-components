@@ -1,8 +1,20 @@
 import { SfSidebar } from "../../components/Sidebar";
 import { Sidebar } from "@syncfusion/ej2-navigations";
+import { SfRadioButton } from "../../components/RadioButton";
 
 export const SidebarDemo = () => {
   let sideBar: Sidebar = null;
+
+  function positionChange(args: any): void {
+    sideBar.position = args.event.target.id === "left" ? "Left" : "Right";
+    if (args.event.target.id === "right") {
+      document.getElementById("hamburger").classList.add("e-rtl");
+    }
+    if (args.event.target.id === "left") {
+      document.getElementById("hamburger").classList.remove("e-rtl");
+    }
+  }
+
   return (
     <div className="control-section">
       <div id="wrapper">
@@ -38,10 +50,20 @@ export const SidebarDemo = () => {
               </div>
               <p>Click the radio button to switch the Sidebar position</p>
               <div className="column">
-                <input type="radio" id="left" />
+                <SfRadioButton
+                  id="left"
+                  label="Left"
+                  name="state"
+                  change={positionChange}
+                ></SfRadioButton>
               </div>
               <div className="column">
-                <input type="radio" id="right" />
+                <SfRadioButton
+                  id="right"
+                  label="Right"
+                  name="state"
+                  change={positionChange}
+                ></SfRadioButton>
               </div>
             </div>
           </div>
