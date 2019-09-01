@@ -1,26 +1,27 @@
 import { Sidebar, SidebarModel } from "@syncfusion/ej2-navigations";
 
-import { ComponentBase } from "../_base";
+import { SideBarProps } from "./SideBarProps";
 
-export const SfSidebar = (props: SidebarModel & ComponentBase<Sidebar>) => {
+export const SfSidebar = (props: SidebarModel & SideBarProps) => {
   const _view = (
-      <aside id="default-sidebar">
-        <div className="title-header">
-          <div style="display:inline-block"> Sidebar </div>
+      <aside className={props.defaultSidebarCss || "default-sidebar"}>
+        <div className={props.titleHeaderCss || "title-header"}>
+          <div style="display:inline-block"> {props.title} </div>
           <span
             id="close"
-            className="e-icons"
+            className={props.eIconsCss || "e-icons"}
             onClick={() => _component.hide()}
           />
         </div>
-        <div className="sub-title">{props.children}</div>
+        <div className={props.subTitleCss || "sub-title"}>{props.children}</div>
       </aside>
     );
 
   let _component: Sidebar = new Sidebar(props);
-    _component.appendTo(_view);
-    props.component = _component;
+    props._component = _component;
+    props._view = _view;
     props && props.onInit && props.onInit(props);
+    _component.appendTo(_view);
 
   return _view;
 };

@@ -1,6 +1,5 @@
 import { SfSidebar } from "../../components/Sidebar";
 import { Sidebar } from "@syncfusion/ej2-navigations";
-import { ComponentBase } from "../../_base";
 
 export const SidebarDemo = () => {
   let sideBar: Sidebar = null;
@@ -15,8 +14,9 @@ export const SidebarDemo = () => {
             onClick={() => sideBar.show()}
           />
           <SfSidebar
+            title="Test Sidebar"
             onInit={props => {
-              sideBar = props.component;
+              sideBar = props._component;
             }}
           >
             Place your primary content here...

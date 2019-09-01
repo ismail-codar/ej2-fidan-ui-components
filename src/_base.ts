@@ -1,6 +1,7 @@
 export interface ComponentBase<T> {
   id?: any;
   children?: any;
-  component?: T;
+  _component?: T;
+  _view?: HTMLElement;
   onInit?(props: ComponentBase<T>);
 }

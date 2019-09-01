@@ -3,6 +3,7 @@ import * as path from "path";
 
 interface GenModel {
   component: string;
+  componentOptions?: string;
   model?: string;
   imp: string;
   view?: any;
@@ -219,18 +220,19 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "Sidebar",
+    componentOptions: "SideBarProps",
     imp: "ej2-navigations",
     view: `(
-      <aside id="default-sidebar">
-        <div className="title-header">
-          <div style="display:inline-block"> Sidebar </div>
+      <aside className={props.defaultSidebarCss || "default-sidebar"}>
+        <div className={props.titleHeaderCss || "title-header"}>
+          <div style="display:inline-block"> {props.title} </div>
           <span
             id="close"
-            className="e-icons"
+            className={props.eIconsCss || "e-icons"}
             onClick={() => _component.hide()}
           />
         </div>
-        <div className="sub-title">{props.children}</div>
+        <div className={props.subTitleCss || "sub-title"}>{props.children}</div>
       </aside>
     )`
   },
@@ -300,9 +302,15 @@ const generateComponentCode = (opt: GenModel) => {
     opt.imp
   }"${opt.importExtra || ""};
 
-import { ComponentBase } from "../_base";
+import ${
+    opt.componentOptions
+      ? `{ ${opt.componentOptions} } from "./${opt.componentOptions}"`
+      : `{ ComponentBase } from "../_base"`
+  };
 
-export const Sf${cmp} = (props: ${model} & ComponentBase<${cmp}>) => {
+export const Sf${cmp} = (props: ${model} & ${
+    opt.componentOptions ? opt.componentOptions : `ComponentBase<${cmp}>`
+  }) => {
   const _view = ${view};
 
   ${
@@ -313,9 +321,10 @@ export const Sf${cmp} = (props: ${model} & ComponentBase<${cmp}>) => {
     props && props.onInit && props.onInit(props);
   });`
       : `let _component: ${cmp} = new ${cmp}(props);
-    _component.appendTo(_view);
-    props.component = _component;
-    props && props.onInit && props.onInit(props);`
+    props._component = _component;
+    props._view = _view;
+    props && props.onInit && props.onInit(props);
+    _component.appendTo(_view);`
   }
 
   return _view;
