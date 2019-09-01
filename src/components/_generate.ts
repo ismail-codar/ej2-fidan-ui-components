@@ -229,7 +229,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     componentOptions: "SideBarProps",
     imp: "ej2-navigations",
     view: `(
-      <aside className={props.defaultSidebarCss || "default-sidebar"}>
+      <aside className={props.sidebarCss || "default-sidebar"}>
         <div className={props.titleHeaderCss || "title-header"}>
           <div style="display:inline-block"> {props.title} </div>
           <span

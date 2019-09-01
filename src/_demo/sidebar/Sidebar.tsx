@@ -26,7 +26,7 @@ export const SidebarDemo = () => {
             onClick={() => sideBar.show()}
           />
           <SfSidebar
-            title="Test Sidebar"
+            title=" Sidebar "
             onInit={props => {
               sideBar = props._component;
             }}

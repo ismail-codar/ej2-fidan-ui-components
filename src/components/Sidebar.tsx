@@ -4,7 +4,7 @@ import { SideBarProps } from "./SideBarProps";
 
 export const SfSidebar = (props: SidebarModel & SideBarProps) => {
   const _view = (
-      <aside className={props.defaultSidebarCss || "default-sidebar"}>
+      <aside className={props.sidebarCss || "default-sidebar"}>
         <div className={props.titleHeaderCss || "title-header"}>
           <div style="display:inline-block"> {props.title} </div>
           <span
