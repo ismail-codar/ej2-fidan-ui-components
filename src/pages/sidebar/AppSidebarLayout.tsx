@@ -1,10 +1,9 @@
-import { SfSidebar } from "../../ej2-fidan-ui-components/Sidebar";
 import { Sidebar } from "@syncfusion/ej2-navigations";
+import { AppSelectedProperties } from "../../components/sidebar-layout/AppSelectedProperties";
+import { SfSidebar } from "../../ej2-fidan-ui-components/Sidebar";
 import { SfSplitter } from "../../ej2-fidan-ui-components/Splitter";
 import { SfTab } from "../../ej2-fidan-ui-components/Tab";
-import { SfTreeView } from "../../ej2-fidan-ui-components/TreeView";
 import { AppTreeView } from "../../components/sidebar-layout/AppTreeView";
-import { AppSelectedProperties } from "./AppSelectedProperties";
 
 export const AppSidebarLayout = () => {
   let sideBar: Sidebar = null;

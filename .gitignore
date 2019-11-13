@@ -4,4 +4,4 @@ yalc.lock
 yarn.lock
 dist
 node_modules
-src/components
+src/ej2-fidan-ui-components
