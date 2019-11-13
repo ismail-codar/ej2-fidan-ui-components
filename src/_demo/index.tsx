@@ -27,6 +27,7 @@ import { SfSidebar } from "../components/Sidebar";
 
 import "./sidebar/sidebar.css";
 import { SidebarDemo } from "./sidebar/Sidebar";
+import { DemoForm } from "./form/form-demo";
 
 const view1: any = (
   <div>
@@ -417,7 +418,8 @@ const view1: any = (
     <SfDateTimePicker />
     <h1>TimePicker</h1>
     <SfTimePicker /> */}
-    <SidebarDemo />
+    {/* <SidebarDemo /> */}
+    <DemoForm />
   </div>
 );
 

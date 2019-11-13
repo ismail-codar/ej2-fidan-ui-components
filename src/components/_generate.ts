@@ -268,7 +268,9 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "TextBox",
-    imp: "ej2-inputs"
+    imp: "ej2-inputs",
+    view: '<input type="text" id={props.id} />',
+    deferred: true
   },
   {
     component: "Toast",
@@ -276,6 +278,10 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "Toolbar",
+    imp: "ej2-navigations"
+  },
+  {
+    component: "TreeView",
     imp: "ej2-navigations"
   },
   {
