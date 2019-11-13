@@ -1,9 +1,6 @@
 import { enableRipple } from "@syncfusion/ej2-base";
 enableRipple(true);
 
-import * as data from "./dataSource.json";
-import * as chipsData from "./chipsData.json";
-
 import { SfButton } from "../components/Button";
 import { SfAccordion } from "../components/Accordion";
 import { SfTab } from "../components/Tab";
@@ -26,8 +23,7 @@ import { SfTimePicker } from "../components/TimePicker";
 import { SfSidebar } from "../components/Sidebar";
 
 import "./sidebar/sidebar.css";
-import { SidebarDemo } from "./sidebar/Sidebar";
-import { DemoForm } from "./form/form-demo";
+import { DemoForm } from "../pages/form/form-demo.jsx";
 
 const view1: any = (
   <div>
