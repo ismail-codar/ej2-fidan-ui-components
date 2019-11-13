@@ -1,24 +1,17 @@
 {
-  "name": "ej2-fidan-ui-components",
+  "name": "appid",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "demo": "parcel index-demo.html --open --no-cache",
     "start": "parcel index.html --open --no-cache",
     "build": "parcel build index.html --no-cache",
+    "components-link": "ln -s /Users/macbook/DEV/GitHub/ej2-fidan-ui-components/src/components src/ej2-fidan-ui-components",
     "yalc-link": "yalc link @fidanjs/runtime & yalc link @fidanjs/jsx & yalc link @fidanjs/babel-plugin-fidan-jsx"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ismail-codar/ej2-fidan-ui-components.git"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ismail-codar/ej2-fidan-ui-components/issues"
-  },
-  "homepage": "https://github.com/ismail-codar/ej2-fidan-ui-components#readme",
+  "author": "ismail codar",
   "dependencies": {
     "@fidanjs/jsx": "^0.0.12",
     "@fidanjs/router": "^0.0.10",
