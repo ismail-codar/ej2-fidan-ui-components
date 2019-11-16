@@ -33,7 +33,7 @@ export interface IStateFormResources {
     | "date-time"
     | "image-blob"
     | "geo-data"
-    | "material-color-palette";
+    | "color-palette";
   defaultValue: any;
   name: string;
   label: string;
