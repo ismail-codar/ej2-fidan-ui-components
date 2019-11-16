@@ -2,11 +2,11 @@ import {
   listItems,
   listSchemas,
   IStateListResources
-} from "../../../../../../app-packages/sis/model/state-list";
+} from "../../../../../sis/model/state-list";
 import { ICrudMusteriGrubuSchema } from "../types";
 
 export const listItemsICrudMusteriGrubuSchema: {
-  [key in keyof ICrudMusteriGrubuSchema]: IStateListResources
+  [key in keyof ICrudMusteriGrubuSchema]: IStateListResources;
 } = {
   musterGrubuAdi: listItems.string({
     name: "musterGrubuAdi",
@@ -17,8 +17,7 @@ export const listItemsICrudMusteriGrubuSchema: {
     label: "",
     reference: {
       objectType: "ICrudMusteriFormSchema",
-      relationType: "one-to-many",
-      labelKey: "musterGrubuAdi"
+      relationType: "one-to-many"
     }
   })
 };

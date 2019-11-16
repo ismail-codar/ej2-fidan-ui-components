@@ -1,3 +1,10 @@
+/**
+@fileCodeOptions: {
+  "modelsPath": "../types",
+  "stateFormPath": "../../../../../sis/model/state-form",
+  "stateListPath": "../../../../../sis/model/state-list"
+}
+*/
 import { ICrudMusteriFormSchema } from "../crud-musteri/types";
 
 export interface ICrudMusteriViewStyles {

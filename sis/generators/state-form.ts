@@ -133,13 +133,6 @@ export const stateFormRun = (path?: string) => {
 stateFormRun(
   "/Users/macbook/DEV/general-repo/appid/src/components/crud/crud-musteri/types.ts"
 );
-// stateFormRun(
-//   "/Users/macbook/DEV/bulutcrm/bulutcrm-repo/client-react/apps/bulutcrm/src/components/crud-musteri/types.ts"
-// );
-// stateFormRun(
-//   "/Users/macbook/DEV/bulutcrm/bulutcrm-repo/client-react/apps/bulutcrm/src/all-crud-types.ts"
-// );
-
-// stateFormRun(
-//   "/Users/macbook/DEV/bulutcrm/bulutcrm-repo/client-react/apps/crudit/src/all-crud-types.ts"
-// );
+stateFormRun(
+  "/Users/macbook/DEV/general-repo/appid/src/components/crud/crud-musterigrubu/types.ts"
+);

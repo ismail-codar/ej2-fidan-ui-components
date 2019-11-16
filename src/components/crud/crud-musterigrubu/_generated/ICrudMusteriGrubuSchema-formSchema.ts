@@ -2,11 +2,11 @@ import {
   formItems,
   formSchemas,
   IStateFormResources
-} from "../../../../../../app-packages/sis/model/state-form";
+} from "../../../../../sis/model/state-form";
 import { ICrudMusteriGrubuSchema } from "../types";
 
 export const formItemsICrudMusteriGrubuSchema: {
-  [key in keyof ICrudMusteriGrubuSchema]: IStateFormResources
+  [key in keyof ICrudMusteriGrubuSchema]: IStateFormResources;
 } = {
   musterGrubuAdi: formItems.string({
     name: "musterGrubuAdi",

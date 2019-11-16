@@ -89,3 +89,6 @@ export const stateListRun = (path?: string) => {
 stateListRun(
   "/Users/macbook/DEV/general-repo/appid/src/components/crud/crud-musteri/types.ts"
 );
+stateListRun(
+  "/Users/macbook/DEV/general-repo/appid/src/components/crud/crud-musterigrubu/types.ts"
+);

@@ -12,9 +12,7 @@ import {
   ICrudMusteriViewStyles
 } from "./types";
 
-export const crudMusteriStyles: ViewStylesType<
-  ICrudMusteriViewStyles
-> = theme => ({
+export const crudMusteriStyles: ViewStylesType<ICrudMusteriViewStyles> = theme => ({
   root: {
     width: "100%"
   }
