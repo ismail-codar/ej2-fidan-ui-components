@@ -4,6 +4,7 @@ import { SfSidebar } from "../../ej2-fidan-ui-components/Sidebar";
 import { SfSplitter } from "../../ej2-fidan-ui-components/Splitter";
 import { SfTab } from "../../ej2-fidan-ui-components/Tab";
 import { AppTreeView } from "../../components/sidebar-layout/AppTreeView";
+import { FormDemo } from "../../components/form/_.demo";
 
 export const AppSidebarLayout = () => {
   let sideBar: Sidebar = null;
@@ -35,10 +36,7 @@ export const AppSidebarLayout = () => {
               ]}
             >
               <div class="default-splitter-content">
-                <span>
-                  Middle pane<div id="panetext">size: 50%</div>
-                  <div id="panetext">min: 60px</div>
-                </span>
+                <FormDemo></FormDemo>
               </div>
               <div class="default-splitter-content">
                 <SfTab
