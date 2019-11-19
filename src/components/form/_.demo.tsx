@@ -4,6 +4,13 @@ import { formItemsICrudMusteriGrubuSchema } from "../crud/crud-musterigrubu/_gen
 export const FormDemo = () => {
   return (
     <Form
+      validation={{
+        rules: {
+          musterGrubuAdi: {
+            required: true
+          }
+        }
+      }}
       schema={formItemsICrudMusteriGrubuSchema}
       onSubmit={values => console.log(values)}
       fixedInputValues={{
