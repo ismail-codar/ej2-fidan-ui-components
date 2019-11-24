@@ -40,9 +40,9 @@ const generateStateFormCode = (
     }';
     import { ${definitionName} } from '${options.modelsPath}';
     
-    export const formItems${definitionName}: {
+    export const formItems${definitionName}: ()=> {
       [key in keyof ${definitionName}]: IStateFormResources
-    } = {
+    } =  ()=> ({
       ${Object.keys(def.properties).map(key => {
         let property: JSONSchema4 = def.properties[key];
         const isDate = property.$ref && property.$ref.endsWith("/Date");
@@ -118,7 +118,7 @@ const generateStateFormCode = (
                 label: ""
               })`;
       })}
-    };
+    });
     
     formSchemas["${definitionName}"] = formItems${definitionName};
     `;

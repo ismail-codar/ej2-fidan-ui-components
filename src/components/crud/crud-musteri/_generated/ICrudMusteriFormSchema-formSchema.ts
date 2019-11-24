@@ -5,9 +5,9 @@ import {
 } from "../../../../../sis/model/state-form";
 import { ICrudMusteriFormSchema } from "../types";
 
-export const formItemsICrudMusteriFormSchema: {
+export const formItemsICrudMusteriFormSchema: () => {
   [key in keyof ICrudMusteriFormSchema]: IStateFormResources;
-} = {
+} = () => ({
   ad: formItems.string({
     name: "ad",
     label: ""
@@ -45,6 +45,6 @@ export const formItemsICrudMusteriFormSchema: {
     name: "oncelik",
     label: ""
   })
-};
+});
 
 formSchemas["ICrudMusteriFormSchema"] = formItemsICrudMusteriFormSchema;

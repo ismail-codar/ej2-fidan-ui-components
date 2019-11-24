@@ -28,7 +28,9 @@ export interface IStateCrudState {
   form: IStateFormState<any>;
 }
 
-export type StateFormDataType<T> = { [key in keyof T]: IStateFormResources };
+export type StateFormDataType<T> = {
+  [key in keyof T]: IStateFormResources;
+};
 
 export interface IStateCrudState {
   restUrl: string;
@@ -41,6 +43,7 @@ export interface IStateCrudState {
 }
 
 export interface IStateFormState<T> {
+  title: any;
   validation: FormValidatorModel;
   schema: StateFormDataType<T>;
   handlers?: { [key in keyof IStateFormHandlers]: any };
@@ -51,13 +54,9 @@ export interface IStateFormState<T> {
     [key: string]: { value: any; behaviour: "hidden" | "readonly" };
   };
   values?: { [key in keyof T]: any };
-  formRef?: (dom: HTMLFormElement) => void;
   hiddenFormOnInit?: boolean;
-  inputRefs?: { [key: string]: HTMLElement };
   onSubmit?: (values: any) => void;
   onValidated?: (errors: any, values) => void;
-  formWidth?: number;
-  dummy?: boolean; // gerektiğinde form render in çalışabilmesi için değiştirilir
 }
 
 export interface IStateFormHandlers {
@@ -75,9 +74,9 @@ export const Form = (props: IStateFormState<any>) => {
   const view = (
     <div className="content-wrapper" style="margin-bottom: 25px;">
       <div className="form-title">
-        <span>Add Customer Details</span>
+        <span>{props.title}</span>
       </div>
-      <form id="formId" ref={formDom} className="form-horizontal" novalidate="">
+      <form ref={formDom} className="form-horizontal" novalidate="">
         {inputKeys.map(inputKey => {
           const input = props.schema[inputKey];
           return (
@@ -86,7 +85,7 @@ export const Form = (props: IStateFormState<any>) => {
         })}
         <div className="row">
           <div style="width: 320px;margin:0px auto;height: 100px;padding-top: 25px;">
-            <SfButton>Temizle</SfButton>
+            <SfButton type="reset">Temizle</SfButton>
             <SfButton isPrimary={true}>Kaydet</SfButton>
           </div>
         </div>
@@ -96,7 +95,7 @@ export const Form = (props: IStateFormState<any>) => {
 
   // Initialize the FormValidator.
   window.requestAnimationFrame(() => {
-    var formObj = new FormValidator("#formId", props.validation);
+    var formObj = new FormValidator(formDom, props.validation);
     formDom.addEventListener("submit", function(e) {
       e.preventDefault();
       if (formObj.validate()) {

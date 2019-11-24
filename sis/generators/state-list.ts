@@ -17,9 +17,9 @@ const generateStateListCode = (
     }';
     import { ${definitionName} } from '${options.modelsPath}';
     
-    export const listItems${definitionName}: {
+    export const listItems${definitionName}: ()=> {
       [key in keyof ${definitionName}]: IStateListResources
-    } = {
+    } = ()=> ({
       ${Object.keys(def.properties).map(key => {
         const property: JSONSchema4 = def.properties[key];
         const isDate = property.$ref && property.$ref.endsWith("/Date");
@@ -74,7 +74,7 @@ const generateStateListCode = (
                 label: ""
               })`;
       })}
-    };
+    });
 
     listSchemas["${definitionName}"] = listItems${definitionName};
     `;

@@ -109,5 +109,5 @@ export const listItems = {
   }
 };
 export const listSchemas: {
-  [key: string]: { [key: string]: IStateListResources };
+  [key: string]: () => { [key: string]: IStateListResources };
 } = {};

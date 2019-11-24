@@ -5,9 +5,9 @@ import {
 } from "../../../../../sis/model/state-list";
 import { ICrudMusteriFormSchema } from "../types";
 
-export const listItemsICrudMusteriFormSchema: {
+export const listItemsICrudMusteriFormSchema: () => {
   [key in keyof ICrudMusteriFormSchema]: IStateListResources;
-} = {
+} = () => ({
   ad: listItems.string({
     name: "ad",
     label: ""
@@ -44,6 +44,6 @@ export const listItemsICrudMusteriFormSchema: {
     name: "oncelik",
     label: ""
   })
-};
+});
 
 listSchemas["ICrudMusteriFormSchema"] = listItemsICrudMusteriFormSchema;

@@ -140,5 +140,5 @@ export const formItems = {
 };
 
 export const formSchemas: {
-  [key: string]: { [key: string]: IStateFormResources };
+  [key: string]: () => { [key: string]: IStateFormResources };
 } = {};

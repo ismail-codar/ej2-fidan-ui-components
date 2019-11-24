@@ -5,9 +5,9 @@ import {
 } from "../../../../../sis/model/state-form";
 import { ICrudMusteriGrubuSchema } from "../types";
 
-export const formItemsICrudMusteriGrubuSchema: {
+export const formItemsICrudMusteriGrubuSchema: () => {
   [key in keyof ICrudMusteriGrubuSchema]: IStateFormResources;
-} = {
+} = () => ({
   musterGrubuAdi: formItems.string({
     name: "musterGrubuAdi",
     label: ""
@@ -25,6 +25,6 @@ export const formItemsICrudMusteriGrubuSchema: {
       }
     }
   })
-};
+});
 
 formSchemas["ICrudMusteriGrubuSchema"] = formItemsICrudMusteriGrubuSchema;
