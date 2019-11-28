@@ -8,7 +8,7 @@ export interface IDataReference {
   labelKey?: string;
   objectType: string;
   relationType: "one-to-many" | "many-to-one" | "one-to-one" | "many-to-many";
-  widget?: any;
+  widget?: "grid" | "crud";
 }
 
 export interface IStateFormResources {
@@ -22,7 +22,7 @@ export interface IStateFormResources {
     | "date"
     | "time"
     | "datetime";
-  widgetType?: "toggle" | "text" | "dt-picker" | "slider";
+  widgetType?: "toggle" | "text" | "dt-picker" | "slider" | "grid" | "crud";
   listItems?: {
     value: any;
     label: string;

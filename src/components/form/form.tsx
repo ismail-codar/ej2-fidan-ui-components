@@ -1,8 +1,17 @@
-import { IStateFormResources } from "../../../sis/model/state-form";
+import {
+  IStateFormResources,
+  IFormValidation
+} from "../../../sis/model/state-form";
 import { IStateListState } from "../list/list";
 import { FormValidator, FormValidatorModel } from "@syncfusion/ej2-inputs";
 import { FormGroup } from "../../ej2-fidan-ui-components/complex/form/FormGroup";
 import { SfButton } from "../../ej2-fidan-ui-components/Button";
+import {
+  formSchemaToEj2ValidatorModel,
+  setFormSchemaDefaults
+} from "./form-util";
+import { IStateDataAdapter } from "../../../sis/model/state-adapter";
+import { DataRelation } from "./data-relation";
 
 export type DialogModeType = "hidden" | "add" | "edit" | "delete";
 
@@ -44,8 +53,8 @@ export interface IStateCrudState {
 
 export interface IStateFormState<T> {
   title: any;
-  validation: FormValidatorModel;
   schema: StateFormDataType<T>;
+  dataAdapter: IStateDataAdapter;
   handlers?: { [key in keyof IStateFormHandlers]: any };
   isValidForm?: boolean;
   isDirtyForm?: { value?: boolean };
@@ -69,6 +78,7 @@ export interface IStateFormHandlers {
 export const Form = (props: IStateFormState<any>) => {
   const formDom: HTMLFormElement = null;
 
+  setFormSchemaDefaults(props.schema);
   const inputKeys = Object.keys(props.schema);
 
   const view = (
@@ -79,9 +89,12 @@ export const Form = (props: IStateFormState<any>) => {
       <form ref={formDom} className="form-horizontal" novalidate="">
         {inputKeys.map(inputKey => {
           const input = props.schema[inputKey];
-          return (
-            <FormGroup label={input.label || input.name} name={input.name} />
-          );
+          const { reference } = input;
+          if (reference) {
+            return <DataRelation input={input} />;
+          } else {
+            return <FormGroup input={input} />;
+          }
         })}
         <div className="row">
           <div style="width: 320px;margin:0px auto;height: 100px;padding-top: 25px;">
@@ -95,7 +108,10 @@ export const Form = (props: IStateFormState<any>) => {
 
   // Initialize the FormValidator.
   window.requestAnimationFrame(() => {
-    var formObj = new FormValidator(formDom, props.validation);
+    var formObj = new FormValidator(
+      formDom,
+      formSchemaToEj2ValidatorModel(props.schema)
+    );
     formDom.addEventListener("submit", function(e) {
       e.preventDefault();
       if (formObj.validate()) {
