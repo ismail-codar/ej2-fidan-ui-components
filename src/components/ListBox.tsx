@@ -8,8 +8,8 @@ export const SfListBox = (props: ListBoxModel & ComponentBase<ListBox>) => {
   let _component: ListBox = new ListBox(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

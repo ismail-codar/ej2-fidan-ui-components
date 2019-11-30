@@ -8,8 +8,8 @@ export const SfFileManager = (props: FileManagerModel & ComponentBase<FileManage
   let _component: FileManager = new FileManager(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

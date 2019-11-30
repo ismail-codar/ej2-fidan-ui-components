@@ -8,8 +8,8 @@ export const SfSmithchart = (props: SmithchartModel & ComponentBase<Smithchart>)
   let _component: Smithchart = new Smithchart(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

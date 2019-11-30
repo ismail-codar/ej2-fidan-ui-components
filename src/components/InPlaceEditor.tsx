@@ -8,8 +8,8 @@ export const SfInPlaceEditor = (props: InPlaceEditorModel & ComponentBase<InPlac
   let _component: InPlaceEditor = new InPlaceEditor(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

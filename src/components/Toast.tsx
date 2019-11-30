@@ -8,8 +8,8 @@ export const SfToast = (props: ToastModel & ComponentBase<Toast>) => {
   let _component: Toast = new Toast(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

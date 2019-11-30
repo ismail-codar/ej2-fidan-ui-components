@@ -8,8 +8,8 @@ export const SfListView = (props: ListViewModel & ComponentBase<ListView>) => {
   let _component: ListView = new ListView(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

@@ -8,8 +8,8 @@ export const SfDropDownList = (props: DropDownListModel & ComponentBase<DropDown
   let _component: DropDownList = new DropDownList(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

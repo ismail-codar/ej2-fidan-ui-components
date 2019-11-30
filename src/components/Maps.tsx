@@ -8,8 +8,8 @@ export const SfMaps = (props: MapsModel & ComponentBase<Maps>) => {
   let _component: Maps = new Maps(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

@@ -8,8 +8,8 @@ export const SfStockChart = (props: StockChartModel & ComponentBase<StockChart>)
   let _component: StockChart = new StockChart(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

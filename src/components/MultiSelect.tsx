@@ -8,8 +8,8 @@ export const SfMultiSelect = (props: MultiSelectModel & ComponentBase<MultiSelec
   let _component: MultiSelect = new MultiSelect(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

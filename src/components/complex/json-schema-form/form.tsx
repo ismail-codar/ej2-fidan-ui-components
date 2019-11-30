@@ -72,7 +72,7 @@ const getValidationDefaults = (properties: Definition) => {
 };
 
 // https://github.com/final-form/react-final-form/blob/master/src/ReactFinalForm.js
-export var Form = (
+export var JsonSchemaForm = (
   props: FormProps & { children?: any; ref?: HTMLElement }
 ) => {
   if (!props.state) {

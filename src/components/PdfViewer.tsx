@@ -8,8 +8,8 @@ export const SfPdfViewer = (props: PdfViewerModel & ComponentBase<PdfViewer>) =>
   let _component: PdfViewer = new PdfViewer(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

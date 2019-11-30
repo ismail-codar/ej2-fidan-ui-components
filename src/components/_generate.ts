@@ -10,6 +10,7 @@ interface GenModel {
   deferred?: boolean;
   useId?: boolean;
   importExtra?: string;
+  propsExtra?: any;
   TODO?: boolean;
 }
 
@@ -45,7 +46,10 @@ const compnents: GenModel[] = [
   {
     component: "Button",
     imp: "ej2-buttons",
-    view: "<button>{props.children}</button>"
+    view: "<button type={props.type}>{props.children}</button>",
+    propsExtra: {
+      type: "~string~"
+    }
   },
   {
     component: "Calendar",
@@ -310,6 +314,12 @@ const generateComponentCode = (opt: GenModel) => {
     view = view.replace(">", " id={props.id || Math.random()}>");
   }
   const deferred = opt.deferred;
+  const propsExtra = opt.propsExtra
+    ? ` & Partial<${JSON.stringify(opt.propsExtra, null, 1)
+        .replace(/"~/g, "")
+        .replace(/~"/g, "")}>`
+    : "";
+
   return `import { ${cmp}, ${model} } from "@syncfusion/${
     opt.imp
   }"${opt.importExtra || ""};
@@ -320,7 +330,7 @@ import ${
       : `{ ComponentBase } from "../_base"`
   };
 
-export const Sf${cmp} = (props: ${model} & ${
+export const Sf${cmp} = (props: ${model + propsExtra} & ${
     opt.componentOptions ? opt.componentOptions : `ComponentBase<${cmp}>`
   }) => {
   const _view = ${view};
@@ -335,8 +345,8 @@ export const Sf${cmp} = (props: ${model} & ${
       : `let _component: ${cmp} = new ${cmp}(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
-    _component.appendTo(_view);`
+    _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);`
   }
 
   return _view;

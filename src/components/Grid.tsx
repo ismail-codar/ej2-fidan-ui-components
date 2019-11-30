@@ -8,8 +8,8 @@ export const SfGrid = (props: GridModel & ComponentBase<Grid>) => {
   let _component: Grid = new Grid(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };

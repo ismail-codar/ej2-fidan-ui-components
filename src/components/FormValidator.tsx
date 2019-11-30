@@ -8,8 +8,8 @@ export const SfFormValidator = (props: FormValidatorModel & ComponentBase<FormVa
   let _component: FormValidator = new FormValidator(props);
     props._component = _component;
     props._view = _view;
-    props && props.onInit && props.onInit(props);
     _component.appendTo(_view);
+    props && props.onInit && props.onInit(props);
 
   return _view;
 };
