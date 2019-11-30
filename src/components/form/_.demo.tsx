@@ -13,10 +13,9 @@ export const FormDemo = () => {
 
   schema.musteriler.widgetType = "grid"; // TODO reference dan otomatik almalı
   schema.musteriler.reference = {
-    labelKey: "Müşteriler",
+    objectType: "ICrudMusteriGrubuSchema",
     relationType: "one-to-many",
-    objectType: "",
-    widget: "grid"
+    labelKey: "musterGrubuAdi"
   };
 
   return (
