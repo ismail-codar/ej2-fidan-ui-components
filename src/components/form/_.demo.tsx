@@ -1,6 +1,11 @@
 import { Form } from "./form";
 import { formItemsICrudMusteriGrubuSchema } from "../crud/crud-musterigrubu/_generated/ICrudMusteriGrubuSchema-formSchema";
 import { pouchDbAdapter } from "../../../sis/services/pdb-adapter";
+import { formItemsICrudMusteriFormSchema } from "../crud/crud-musteri/_generated/ICrudMusteriFormSchema-formSchema";
+import { listItemsICrudMusteriFormSchema } from "../crud/crud-musteri/_generated/ICrudMusteriFormSchema-listSchema";
+
+formItemsICrudMusteriFormSchema;
+listItemsICrudMusteriFormSchema;
 
 export const FormDemo = () => {
   const dataAdapter = pouchDbAdapter();
@@ -12,11 +17,6 @@ export const FormDemo = () => {
   schema.musterGrubuAdi.label = "Müşteri Grubu Adı";
 
   schema.musteriler.widgetType = "grid"; // TODO reference dan otomatik almalı
-  schema.musteriler.reference = {
-    objectType: "ICrudMusteriGrubuSchema",
-    relationType: "one-to-many",
-    labelKey: "musterGrubuAdi"
-  };
 
   return (
     <Form

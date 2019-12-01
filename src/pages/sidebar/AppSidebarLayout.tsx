@@ -33,7 +33,7 @@ export const AppSidebarLayout = () => {
                 localStorage.setItem("sideBar", "0");
               });
               if (localStorage.getItem("sideBar") !== "1") {
-                //sideBar.hide();
+                sideBar.hide();
               }
             }}
           >

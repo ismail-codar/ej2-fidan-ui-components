@@ -18,11 +18,7 @@ export const formItemsICrudMusteriGrubuSchema: () => {
     reference: {
       objectType: "ICrudMusteriFormSchema",
       relationType: "one-to-many",
-      labelKey: "musteriGrubu",
-      widget: {
-        formHandlers: {},
-        listHandlers: {}
-      }
+      labelKey: "musteriGrubu"
     }
   })
 });

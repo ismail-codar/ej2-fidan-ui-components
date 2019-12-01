@@ -1,3 +1,5 @@
+import { IStateListResources } from "./state-list";
+
 export interface IFormValidation {
   required?: boolean;
   min?: number;
