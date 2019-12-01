@@ -4,6 +4,10 @@ import {
   formSchemas
 } from "../../../sis/model/state-form";
 import { listSchemas } from "../../../sis/model/state-list";
+import { SfGrid } from "../../ej2-fidan-ui-components/Grid";
+import { GridModel, Column, ColumnModel } from "@syncfusion/ej2-grids";
+import { SfMultiSelect } from "../../ej2-fidan-ui-components/MultiSelect";
+import { MultiSelectModel } from "@syncfusion/ej2-dropdowns";
 
 export interface IStateFormDataRelation {
   input: IStateFormResources;
@@ -15,10 +19,24 @@ const oneToONERelationUI = (reference: IDataReference) => {
   return <div>oneToONERelationUI</div>;
 };
 const oneToMANYRelationUI = (reference: IDataReference) => {
-  console.log(listSchemas[reference.objectType]);
-  console.log(formSchemas[reference.objectType]);
+  const shema = listSchemas[reference.objectType]();
+  console.log(reference, shema);
+  // console.log(formSchemas[reference.objectType]);
 
-  return <div>oneToMANYRelationUI</div>;
+  return (
+    <SfMultiSelect mode="Box">
+      <option value="Game1">American Football</option>
+      <option value="Game2">Badminton</option>
+      <option value="Game3">Basketball</option>
+      <option value="Game4">Cricket</option>
+      <option value="Game5">Football</option>
+      <option value="Game6">Golf</option>
+      <option value="Game7">Hockey</option>
+      <option value="Game8">Rugby</option>
+      <option value="Game9">Snooker</option>
+      <option value="Game10">Tennis</option>
+    </SfMultiSelect>
+  );
 };
 
 export const DataRelation = (props: IStateFormDataRelation) => {

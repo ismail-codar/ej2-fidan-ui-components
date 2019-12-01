@@ -89,12 +89,7 @@ export const Form = (props: IStateFormState<any>) => {
       <form ref={formDom} className="form-horizontal" novalidate="">
         {inputKeys.map(inputKey => {
           const input = props.schema[inputKey];
-          const { reference } = input;
-          if (reference) {
-            return <DataRelation input={input} />;
-          } else {
-            return <FormGroup input={input} />;
-          }
+          return <FormGroup input={input} />;
         })}
         <div className="row">
           <div style="width: 320px;margin:0px auto;height: 100px;padding-top: 25px;">

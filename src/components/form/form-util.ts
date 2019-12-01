@@ -10,10 +10,6 @@ export const formSchemaToEj2ValidatorModel = (
   };
   for (var key in schema) {
     const input = schema[key];
-    if (input.reference) {
-      // bazı input tiplerinde validasyon olmaz
-      continue;
-    }
     const { validation } = input;
     if (!formValidation.rules[key]) {
       formValidation.rules[key] = {};
