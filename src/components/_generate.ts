@@ -169,10 +169,6 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     imp: "ej2-filemanager"
   },
   {
-    component: "FormValidator",
-    imp: "ej2-inputs"
-  },
-  {
     component: "Gantt",
     imp: "ej2-gantt"
   },
