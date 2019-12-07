@@ -1,6 +1,5 @@
-import { Menu, MenuModel } from "@syncfusion/ej2-navigations";
-
 import { ComponentBase } from "../_base";
+import { Menu, MenuModel } from "@syncfusion/ej2-navigations";
 
 export const SfMenu = (props: MenuModel & ComponentBase<Menu>) => {
   const _view = <div>{props.children}</div>;

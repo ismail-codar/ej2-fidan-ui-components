@@ -1,6 +1,5 @@
-import { Grid, GridModel } from "@syncfusion/ej2-grids";
-
 import { ComponentBase } from "../_base";
+import { Grid, GridModel } from "@syncfusion/ej2-grids";
 
 export const SfGrid = (props: GridModel & ComponentBase<Grid>) => {
   const _view = <div>{props.children}</div>;

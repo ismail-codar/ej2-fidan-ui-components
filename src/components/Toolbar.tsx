@@ -1,6 +1,5 @@
-import { Toolbar, ToolbarModel } from "@syncfusion/ej2-navigations";
-
 import { ComponentBase } from "../_base";
+import { Toolbar, ToolbarModel } from "@syncfusion/ej2-navigations";
 
 export const SfToolbar = (props: ToolbarModel & ComponentBase<Toolbar>) => {
   const _view = <div>{props.children}</div>;

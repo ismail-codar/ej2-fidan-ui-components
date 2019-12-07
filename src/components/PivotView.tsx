@@ -1,6 +1,5 @@
-import { PivotView, PivotViewModel } from "@syncfusion/ej2-pivotview";
-
 import { ComponentBase } from "../_base";
+import { PivotView, PivotViewModel } from "@syncfusion/ej2-pivotview";
 
 export const SfPivotView = (props: PivotViewModel & ComponentBase<PivotView>) => {
   const _view = <div>{props.children}</div>;

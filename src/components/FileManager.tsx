@@ -1,6 +1,5 @@
-import { FileManager, FileManagerModel } from "@syncfusion/ej2-filemanager";
-
 import { ComponentBase } from "../_base";
+import { FileManager, FileManagerModel } from "@syncfusion/ej2-filemanager";
 
 export const SfFileManager = (props: FileManagerModel & ComponentBase<FileManager>) => {
   const _view = <div>{props.children}</div>;

@@ -22,7 +22,18 @@ const compnents: GenModel[] = [
   {
     component: "AutoComplete",
     imp: "ej2-dropdowns",
-    view: '<input type="text" />',
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<AutoComplete>",
+    view: `
+    <input
+      type="text"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      placeholder={props.placeholder}
+      data-msg-containerid={props.containerId}
+    />
+  `,
     deferred: true
   },
   {
@@ -65,8 +76,7 @@ const compnents: GenModel[] = [
   {
     component: "Chart",
     imp: "ej2-charts/dist/es6/ej2-charts.es5.js",
-    importExtra: `
-import {
+    importExtra: `import {
   AreaSeries,
   DateTime,
   Legend
@@ -140,7 +150,19 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "DropDownList",
-    imp: "ej2-dropdowns"
+    imp: "ej2-dropdowns",
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<DropDownList>",
+    view: `
+    <input
+      type="text"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      data-msg-containerid={props.containerId}
+    />
+  `,
+    deferred: true
   },
   {
     component: "FileManager",
@@ -192,7 +214,20 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "MultiSelect",
-    imp: "ej2-dropdowns"
+    imp: "ej2-dropdowns",
+    deferred: true,
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<MultiSelect>",
+    view: `
+    <input
+      type="text"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      placeholder={props.placeholder}
+      data-msg-containerid={props.containerId}
+    />
+  `
   },
   {
     component: "NumericTextBox",
@@ -209,7 +244,33 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "RadioButton",
     imp: "ej2-buttons",
-    view: '<input type="radio" id={props.id} />',
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<RadioButton>",
+    view: `
+    <input
+      type="radio"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      data-msg-containerid={props.containerId}
+    />
+  `,
+    deferred: true
+  },
+  {
+    component: "CheckBox",
+    imp: "ej2-buttons",
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<CheckBox>",
+    view: `
+    <input
+      type="checkbox"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      data-msg-containerid={props.containerId}
+    />
+  `,
     deferred: true
   },
   {
@@ -230,6 +291,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "Sidebar",
+    importExtra: `import { SideBarProps } from "./props/SideBarProps"`,
     componentOptions: "SideBarProps",
     imp: "ej2-navigations",
     view: `(
@@ -316,23 +378,16 @@ const generateComponentCode = (opt: GenModel) => {
   const deferred = opt.deferred;
   const propsExtra = opt.propsExtra
     ? ` & Partial<${JSON.stringify(opt.propsExtra, null, 1)
-        .replace(/"~/g, "")
-        .replace(/~"/g, "")}>`
+      .replace(/"~/g, "")
+      .replace(/~"/g, "")}>`
     : "";
 
-  return `import { ${cmp}, ${model} } from "@syncfusion/${
-    opt.imp
-  }"${opt.importExtra || ""};
-
-import ${
-    opt.componentOptions
-      ? `{ ${opt.componentOptions} } from "./${opt.componentOptions}"`
-      : `{ ComponentBase } from "../_base"`
-  };
-
+  return `${opt.componentOptions ? "" : `import { ComponentBase } from "../_base";`}
+import { ${cmp}, ${model} } from "@syncfusion/${opt.imp}";
+${opt.importExtra || ""}
 export const Sf${cmp} = (props: ${model + propsExtra} & ${
     opt.componentOptions ? opt.componentOptions : `ComponentBase<${cmp}>`
-  }) => {
+    }) => {
   const _view = ${view};
 
   ${
@@ -347,7 +402,7 @@ export const Sf${cmp} = (props: ${model + propsExtra} & ${
     props._view = _view;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);`
-  }
+    }
 
   return _view;
 };

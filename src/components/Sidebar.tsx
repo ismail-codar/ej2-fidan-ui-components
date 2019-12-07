@@ -1,7 +1,6 @@
+
 import { Sidebar, SidebarModel } from "@syncfusion/ej2-navigations";
-
-import { SideBarProps } from "./SideBarProps";
-
+import { SideBarProps } from "./props/SideBarProps"
 export const SfSidebar = (props: SidebarModel & SideBarProps) => {
   const _view = (
       <aside className={props.sidebarCss || "default-sidebar"}>

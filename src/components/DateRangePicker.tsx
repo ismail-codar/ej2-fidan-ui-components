@@ -1,6 +1,5 @@
-import { DateRangePicker, DateRangePickerModel } from "@syncfusion/ej2-calendars";
-
 import { ComponentBase } from "../_base";
+import { DateRangePicker, DateRangePickerModel } from "@syncfusion/ej2-calendars";
 
 export const SfDateRangePicker = (props: DateRangePickerModel & ComponentBase<DateRangePicker>) => {
   const _view = <input type="text" />;

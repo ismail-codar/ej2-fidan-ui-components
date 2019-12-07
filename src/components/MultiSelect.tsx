@@ -1,15 +1,23 @@
+
 import { MultiSelect, MultiSelectModel } from "@syncfusion/ej2-dropdowns";
+import { InputWithMessageProps } from "../_base"
+export const SfMultiSelect = (props: MultiSelectModel & InputWithMessageProps<MultiSelect>) => {
+  const _view = 
+    <input
+      type="text"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      placeholder={props.placeholder}
+      data-msg-containerid={props.containerId}
+    />
+  ;
 
-import { ComponentBase } from "../_base";
-
-export const SfMultiSelect = (props: MultiSelectModel & ComponentBase<MultiSelect>) => {
-  const _view = <div>{props.children}</div>;
-
-  let _component: MultiSelect = new MultiSelect(props);
-    props._component = _component;
-    props._view = _view;
+  window.requestAnimationFrame(() => {
+    let _component: MultiSelect = new MultiSelect(props);
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
+  });
 
   return _view;
 };

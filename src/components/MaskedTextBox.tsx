@@ -1,6 +1,5 @@
-import { MaskedTextBox, MaskedTextBoxModel } from "@syncfusion/ej2-inputs";
-
 import { ComponentBase } from "../_base";
+import { MaskedTextBox, MaskedTextBoxModel } from "@syncfusion/ej2-inputs";
 
 export const SfMaskedTextBox = (props: MaskedTextBoxModel & ComponentBase<MaskedTextBox>) => {
   const _view = <div>{props.children}</div>;

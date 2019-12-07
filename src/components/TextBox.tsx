@@ -1,6 +1,5 @@
-import { TextBox, TextBoxModel } from "@syncfusion/ej2-inputs";
-
 import { ComponentBase } from "../_base";
+import { TextBox, TextBoxModel } from "@syncfusion/ej2-inputs";
 
 export const SfTextBox = (props: TextBoxModel & ComponentBase<TextBox>) => {
   const _view = <input type="text" id={props.id} />;

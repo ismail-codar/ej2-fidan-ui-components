@@ -1,6 +1,5 @@
-import { Diagram, DiagramModel } from "@syncfusion/ej2-diagrams";
-
 import { ComponentBase } from "../_base";
+import { Diagram, DiagramModel } from "@syncfusion/ej2-diagrams";
 
 export const SfDiagram = (props: DiagramModel & ComponentBase<Diagram>) => {
   const _view = <div>{props.children}</div>;

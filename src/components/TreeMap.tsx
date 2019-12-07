@@ -1,6 +1,5 @@
-import { TreeMap, TreeMapModel } from "@syncfusion/ej2-treemap";
-
 import { ComponentBase } from "../_base";
+import { TreeMap, TreeMapModel } from "@syncfusion/ej2-treemap";
 
 export const SfTreeMap = (props: TreeMapModel & ComponentBase<TreeMap>) => {
   const _view = <div>{props.children}</div>;

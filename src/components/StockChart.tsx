@@ -1,6 +1,5 @@
-import { StockChart, StockChartModel } from "@syncfusion/ej2-charts";
-
 import { ComponentBase } from "../_base";
+import { StockChart, StockChartModel } from "@syncfusion/ej2-charts";
 
 export const SfStockChart = (props: StockChartModel & ComponentBase<StockChart>) => {
   const _view = <div>{props.children}</div>;

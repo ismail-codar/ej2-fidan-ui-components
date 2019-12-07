@@ -1,6 +1,5 @@
-import { ChipList, ChipListModel } from "@syncfusion/ej2-buttons";
-
 import { ComponentBase } from "../_base";
+import { ChipList, ChipListModel } from "@syncfusion/ej2-buttons";
 
 export const SfChipList = (props: ChipListModel & ComponentBase<ChipList>) => {
   const _view = <div>{props.children}</div>;

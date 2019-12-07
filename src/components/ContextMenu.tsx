@@ -1,6 +1,5 @@
-import { ContextMenu, ContextMenuModel } from "@syncfusion/ej2-navigations";
-
 import { ComponentBase } from "../_base";
+import { ContextMenu, ContextMenuModel } from "@syncfusion/ej2-navigations";
 
 export const SfContextMenu = (props: ContextMenuModel & ComponentBase<ContextMenu>) => {
   const _view = <ul />;

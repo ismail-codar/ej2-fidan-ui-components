@@ -1,6 +1,5 @@
-import { TreeGrid, TreeGridModel } from "@syncfusion/ej2-treegrid";
-
 import { ComponentBase } from "../_base";
+import { TreeGrid, TreeGridModel } from "@syncfusion/ej2-treegrid";
 
 export const SfTreeGrid = (props: TreeGridModel & ComponentBase<TreeGrid>) => {
   const _view = <div>{props.children}</div>;

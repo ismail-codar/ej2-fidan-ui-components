@@ -1,6 +1,5 @@
-import { Accordion, AccordionModel } from "@syncfusion/ej2-navigations";
-
 import { ComponentBase } from "../_base";
+import { Accordion, AccordionModel } from "@syncfusion/ej2-navigations";
 
 export const SfAccordion = (props: AccordionModel & ComponentBase<Accordion>) => {
   const _view = <div>{props.children}</div>;

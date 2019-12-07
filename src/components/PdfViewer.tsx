@@ -1,6 +1,5 @@
-import { PdfViewer, PdfViewerModel } from "@syncfusion/ej2-pdfviewer";
-
 import { ComponentBase } from "../_base";
+import { PdfViewer, PdfViewerModel } from "@syncfusion/ej2-pdfviewer";
 
 export const SfPdfViewer = (props: PdfViewerModel & ComponentBase<PdfViewer>) => {
   const _view = <div>{props.children}</div>;

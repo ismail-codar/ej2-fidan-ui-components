@@ -1,6 +1,5 @@
-import { HeatMap, HeatMapModel } from "@syncfusion/ej2-heatmap";
-
 import { ComponentBase } from "../_base";
+import { HeatMap, HeatMapModel } from "@syncfusion/ej2-heatmap";
 
 export const SfHeatMap = (props: HeatMapModel & ComponentBase<HeatMap>) => {
   const _view = <div>{props.children}</div>;

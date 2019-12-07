@@ -1,6 +1,5 @@
-import { Gantt, GanttModel } from "@syncfusion/ej2-gantt";
-
 import { ComponentBase } from "../_base";
+import { Gantt, GanttModel } from "@syncfusion/ej2-gantt";
 
 export const SfGantt = (props: GanttModel & ComponentBase<Gantt>) => {
   const _view = <div>{props.children}</div>;

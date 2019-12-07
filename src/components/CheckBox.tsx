@@ -1,20 +1,19 @@
 
-import { AutoComplete, AutoCompleteModel } from "@syncfusion/ej2-dropdowns";
+import { CheckBox, CheckBoxModel } from "@syncfusion/ej2-buttons";
 import { InputWithMessageProps } from "../_base"
-export const SfAutoComplete = (props: AutoCompleteModel & InputWithMessageProps<AutoComplete>) => {
+export const SfCheckBox = (props: CheckBoxModel & InputWithMessageProps<CheckBox>) => {
   const _view = 
     <input
-      type="text"
+      type="checkbox"
       id={props.id}
       name={props.name}
       required={props.required}
-      placeholder={props.placeholder}
       data-msg-containerid={props.containerId}
     />
   ;
 
   window.requestAnimationFrame(() => {
-    let _component: AutoComplete = new AutoComplete(props);
+    let _component: CheckBox = new CheckBox(props);
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

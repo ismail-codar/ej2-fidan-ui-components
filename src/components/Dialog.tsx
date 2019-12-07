@@ -1,6 +1,5 @@
-import { Dialog, DialogModel } from "@syncfusion/ej2-popups";
-
 import { ComponentBase } from "../_base";
+import { Dialog, DialogModel } from "@syncfusion/ej2-popups";
 
 export const SfDialog = (props: DialogModel & ComponentBase<Dialog>) => {
   const _view = <div>{props.children}</div>;

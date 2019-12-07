@@ -1,6 +1,5 @@
-import { ListBox, ListBoxModel } from "@syncfusion/ej2-dropdowns";
-
 import { ComponentBase } from "../_base";
+import { ListBox, ListBoxModel } from "@syncfusion/ej2-dropdowns";
 
 export const SfListBox = (props: ListBoxModel & ComponentBase<ListBox>) => {
   const _view = <div>{props.children}</div>;

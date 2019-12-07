@@ -1,6 +1,5 @@
-import { InPlaceEditor, InPlaceEditorModel } from "@syncfusion/ej2-inplace-editor";
-
 import { ComponentBase } from "../_base";
+import { InPlaceEditor, InPlaceEditorModel } from "@syncfusion/ej2-inplace-editor";
 
 export const SfInPlaceEditor = (props: InPlaceEditorModel & ComponentBase<InPlaceEditor>) => {
   const _view = <div>{props.children}</div>;

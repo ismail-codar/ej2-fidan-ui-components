@@ -1,6 +1,5 @@
-import { DashboardLayout, DashboardLayoutModel } from "@syncfusion/ej2-layouts";
-
 import { ComponentBase } from "../_base";
+import { DashboardLayout, DashboardLayoutModel } from "@syncfusion/ej2-layouts";
 
 export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase<DashboardLayout>) => {
   const _view = <div>{props.children}</div>;

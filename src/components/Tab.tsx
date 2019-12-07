@@ -1,6 +1,5 @@
-import { Tab, TabModel } from "@syncfusion/ej2-navigations";
-
 import { ComponentBase } from "../_base";
+import { Tab, TabModel } from "@syncfusion/ej2-navigations";
 
 export const SfTab = (props: TabModel & ComponentBase<Tab>) => {
   const _view = <div>{props.children}</div>;

@@ -1,6 +1,5 @@
-import { QueryBuilder, QueryBuilderModel } from "@syncfusion/ej2-querybuilder";
-
 import { ComponentBase } from "../_base";
+import { QueryBuilder, QueryBuilderModel } from "@syncfusion/ej2-querybuilder";
 
 export const SfQueryBuilder = (props: QueryBuilderModel & ComponentBase<QueryBuilder>) => {
   const _view = <div>{props.children}</div>;

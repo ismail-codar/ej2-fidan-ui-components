@@ -1,6 +1,5 @@
-import { TimePicker, TimePickerModel } from "@syncfusion/ej2-calendars";
-
 import { ComponentBase } from "../_base";
+import { TimePicker, TimePickerModel } from "@syncfusion/ej2-calendars";
 
 export const SfTimePicker = (props: TimePickerModel & ComponentBase<TimePicker>) => {
   const _view = <input type="text" />;

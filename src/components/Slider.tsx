@@ -1,6 +1,5 @@
-import { Slider, SliderModel } from "@syncfusion/ej2-inputs";
-
 import { ComponentBase } from "../_base";
+import { Slider, SliderModel } from "@syncfusion/ej2-inputs";
 
 export const SfSlider = (props: SliderModel & ComponentBase<Slider>) => {
   const _view = <div>{props.children}</div>;

@@ -1,6 +1,5 @@
-import { ComboBox, ComboBoxModel } from "@syncfusion/ej2-dropdowns";
-
 import { ComponentBase } from "../_base";
+import { ComboBox, ComboBoxModel } from "@syncfusion/ej2-dropdowns";
 
 export const SfComboBox = (props: ComboBoxModel & ComponentBase<ComboBox>) => {
   const _view = <div>{props.children}</div>;

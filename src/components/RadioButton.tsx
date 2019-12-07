@@ -1,9 +1,16 @@
+
 import { RadioButton, RadioButtonModel } from "@syncfusion/ej2-buttons";
-
-import { ComponentBase } from "../_base";
-
-export const SfRadioButton = (props: RadioButtonModel & ComponentBase<RadioButton>) => {
-  const _view = <input type="radio" id={props.id} />;
+import { InputWithMessageProps } from "../_base"
+export const SfRadioButton = (props: RadioButtonModel & InputWithMessageProps<RadioButton>) => {
+  const _view = 
+    <input
+      type="radio"
+      id={props.id}
+      name={props.name}
+      required={props.required}
+      data-msg-containerid={props.containerId}
+    />
+  ;
 
   window.requestAnimationFrame(() => {
     let _component: RadioButton = new RadioButton(props);

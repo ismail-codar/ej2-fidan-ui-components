@@ -1,6 +1,5 @@
-import { Button, ButtonModel } from "@syncfusion/ej2-buttons";
-
 import { ComponentBase } from "../_base";
+import { Button, ButtonModel } from "@syncfusion/ej2-buttons";
 
 export const SfButton = (props: ButtonModel & Partial<{
  "type": string

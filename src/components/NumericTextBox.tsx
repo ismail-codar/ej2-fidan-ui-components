@@ -1,6 +1,5 @@
-import { NumericTextBox, NumericTextBoxModel } from "@syncfusion/ej2-inputs";
-
 import { ComponentBase } from "../_base";
+import { NumericTextBox, NumericTextBoxModel } from "@syncfusion/ej2-inputs";
 
 export const SfNumericTextBox = (props: NumericTextBoxModel & ComponentBase<NumericTextBox>) => {
   const _view = <div>{props.children}</div>;

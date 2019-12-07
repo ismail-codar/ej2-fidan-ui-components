@@ -1,6 +1,5 @@
-import { ListView, ListViewModel } from "@syncfusion/ej2-lists";
-
 import { ComponentBase } from "../_base";
+import { ListView, ListViewModel } from "@syncfusion/ej2-lists";
 
 export const SfListView = (props: ListViewModel & ComponentBase<ListView>) => {
   const _view = <div>{props.children}</div>;
