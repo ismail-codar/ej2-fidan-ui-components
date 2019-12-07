@@ -2,6 +2,7 @@
 .cache
 yalc.lock
 yarn.lock
+yarn-error.log
 dist
 node_modules
-src/ej2-fidan-ui-components
+src/ej2-fidan-ui

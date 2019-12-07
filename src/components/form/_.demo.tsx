@@ -16,12 +16,25 @@ export const FormDemo = () => {
   };
   schema.musterGrubuAdi.label = "Müşteri Grubu Adı";
 
-  schema.musteriler.widgetType = "grid"; // TODO reference dan otomatik almalı
+  schema.musteriler.listItems = [
+    {
+      value: 1,
+      label: "Müşteri 1"
+    },
+    {
+      value: 2,
+      label: "Müşteri 2"
+    },
+    {
+      value: 3,
+      label: "Müşteri 3"
+    }
+  ];
+  schema.musteriler.listWidgetType = "dropdownlist";
 
   return (
     <Form
       title="Test Form1"
-      dataAdapter={dataAdapter}
       schema={schema}
       onSubmit={values => console.log(values)}
       fixedInputValues={{

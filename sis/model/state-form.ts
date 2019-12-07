@@ -24,10 +24,18 @@ export interface IStateFormResources {
     | "date"
     | "time"
     | "datetime";
-  widgetType?: "toggle" | "text" | "dt-picker" | "slider" | "grid" | "crud";
+  widgetType?: "toggle" | "text" | "dt-picker" | "slider";
+  listWidgetType?:
+    | "radiobuttons"
+    | "checkboxlist"
+    | "autocomplete"
+    | "dropdownlist"
+    | "multiselect";
   listItems?: {
     value: any;
     label: string;
+    checked?: boolean;
+    disabled?: boolean;
   }[];
   format?:
     | "date"

@@ -4,14 +4,12 @@ import {
 } from "../../../sis/model/state-form";
 import { IStateListState } from "../list/list";
 import { FormValidator, FormValidatorModel } from "@syncfusion/ej2-inputs";
-import { FormGroup } from "../../ej2-fidan-ui-components/complex/form/FormGroup";
-import { SfButton } from "../../ej2-fidan-ui-components/Button";
+import { FormGroup } from "./FormGroup";
+import { SfButton } from "../../ej2-fidan-ui/components/Button";
 import {
   formSchemaToEj2ValidatorModel,
   setFormSchemaDefaults
 } from "./form-util";
-import { IStateDataAdapter } from "../../../sis/model/state-adapter";
-import { DataRelation } from "./data-relation";
 
 export type DialogModeType = "hidden" | "add" | "edit" | "delete";
 
@@ -54,7 +52,6 @@ export interface IStateCrudState {
 export interface IStateFormState<T> {
   title: any;
   schema: StateFormDataType<T>;
-  dataAdapter: IStateDataAdapter;
   handlers?: { [key in keyof IStateFormHandlers]: any };
   isValidForm?: boolean;
   isDirtyForm?: { value?: boolean };
@@ -110,7 +107,7 @@ export const Form = (props: IStateFormState<any>) => {
     formDom.addEventListener("submit", function(e) {
       e.preventDefault();
       if (formObj.validate()) {
-        alert("Customer details added!");
+        console.log(formObj, e);
         formObj.reset();
       }
     });

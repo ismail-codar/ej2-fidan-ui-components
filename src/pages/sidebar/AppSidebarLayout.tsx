@@ -1,8 +1,8 @@
 import { Sidebar, EventArgs } from "@syncfusion/ej2-navigations";
 import { AppSelectedProperties } from "../../components/sidebar-layout/AppSelectedProperties";
-import { SfSidebar } from "../../ej2-fidan-ui-components/Sidebar";
-import { SfSplitter } from "../../ej2-fidan-ui-components/Splitter";
-import { SfTab } from "../../ej2-fidan-ui-components/Tab";
+import { SfSidebar } from "../../ej2-fidan-ui/components/Sidebar";
+import { SfSplitter } from "../../ej2-fidan-ui/components/Splitter";
+import { SfTab } from "../../ej2-fidan-ui/components/Tab";
 import { AppTreeView } from "../../components/sidebar-layout/AppTreeView";
 import { FormDemo } from "../../components/form/_.demo";
 import { EmitType } from "@syncfusion/ej2-base";
