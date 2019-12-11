@@ -44,6 +44,7 @@ export const FormDemo = () => {
         schema={schema}
         onSubmit={values => console.log(values)}
         onInit={({ _component: form }) => {
+          console.log(form)
         }}
       >
         <div className="row">
