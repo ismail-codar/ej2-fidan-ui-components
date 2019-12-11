@@ -10,6 +10,7 @@ import {
   formSchemaToEj2ValidatorModel,
   setFormSchemaDefaults
 } from "./form-util";
+import { ComponentBase } from "../../ej2-fidan-ui/_base";
 
 export type DialogModeType = "hidden" | "add" | "edit" | "delete";
 
@@ -49,18 +50,12 @@ export interface IStateCrudState {
   remoteDb?: PouchDB.Database;
 }
 
-export interface IStateFormState<T> {
-  title: any;
+export interface IStateFormState<T> extends ComponentBase<T> {
   schema: StateFormDataType<T>;
-  handlers?: { [key in keyof IStateFormHandlers]: any };
   isValidForm?: boolean;
   isDirtyForm?: { value?: boolean };
   editId?: { value?: string };
-  fixedInputValues?: {
-    [key: string]: { value: any; behaviour: "hidden" | "readonly" };
-  };
   values?: { [key in keyof T]: any };
-  hiddenFormOnInit?: boolean;
   onSubmit?: (values: any) => void;
   onValidated?: (errors: any, values) => void;
 }
@@ -73,44 +68,40 @@ export interface IStateFormHandlers {
 }
 
 export const Form = (props: IStateFormState<any>) => {
-  const formDom: HTMLFormElement = null;
-
   setFormSchemaDefaults(props.schema);
   const inputKeys = Object.keys(props.schema);
 
   const view = (
-    <div className="content-wrapper" style="margin-bottom: 25px;">
-      <div className="form-title">
-        <span>{props.title}</span>
-      </div>
-      <form ref={formDom} className="form-horizontal" novalidate="">
-        {inputKeys.map(inputKey => {
-          const input = props.schema[inputKey];
-          return <FormGroup input={input} />;
-        })}
-        <div className="row">
-          <div style="width: 320px;margin:0px auto;height: 100px;padding-top: 25px;">
-            <SfButton type="reset">Temizle</SfButton>
-            <SfButton isPrimary={true}>Kaydet</SfButton>
-          </div>
-        </div>
-      </form>
-    </div>
+    <form className="form-horizontal" novalidate="">
+      {inputKeys.map(inputKey => {
+        const input = props.schema[inputKey];
+        return <FormGroup input={input} />;
+      })}
+      {
+        props.children
+      }
+    </form>
   );
 
-  // Initialize the FormValidator.
+  var formObj = new FormValidator(
+    view,
+    formSchemaToEj2ValidatorModel(props.schema)
+  );
   window.requestAnimationFrame(() => {
-    var formObj = new FormValidator(
-      formDom,
-      formSchemaToEj2ValidatorModel(props.schema)
-    );
-    formDom.addEventListener("submit", function(e) {
+    view.addEventListener("submit", function (e) {
       e.preventDefault();
       if (formObj.validate()) {
-        console.log(formObj, e);
         formObj.reset();
       }
     });
+    formObj.addEventListener("validationComplete", (args) => {
+      console.log(args)
+    })
   });
+
+  props._view = view;
+  props._component = formObj;
+  props && props.onInit && props.onInit(props);
+
   return view;
 };

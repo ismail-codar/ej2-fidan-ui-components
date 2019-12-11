@@ -3,6 +3,7 @@ import { formItemsICrudMusteriGrubuSchema } from "../crud/crud-musterigrubu/_gen
 import { pouchDbAdapter } from "../../../sis/services/pdb-adapter";
 import { formItemsICrudMusteriFormSchema } from "../crud/crud-musteri/_generated/ICrudMusteriFormSchema-formSchema";
 import { listItemsICrudMusteriFormSchema } from "../crud/crud-musteri/_generated/ICrudMusteriFormSchema-listSchema";
+import { SfButton } from "../../ej2-fidan-ui/components/Button";
 
 formItemsICrudMusteriFormSchema;
 listItemsICrudMusteriFormSchema;
@@ -12,7 +13,7 @@ export const FormDemo = () => {
   const schema = formItemsICrudMusteriGrubuSchema();
 
   schema.musterGrubuAdi.validation = {
-    required: true
+    required: false
   };
   schema.musterGrubuAdi.label = "Müşteri Grubu Adı";
 
@@ -30,16 +31,37 @@ export const FormDemo = () => {
       label: "Müşteri 3"
     }
   ];
-  schema.musteriler.listWidgetType = "dropdownlist";
+  schema.musteriler.listWidgetType = "checkboxlist";
 
   return (
-    <Form
-      title="Test Form1"
-      schema={schema}
-      onSubmit={values => console.log(values)}
-      fixedInputValues={{
-        numericVarRequired: { value: 9999, behaviour: "hidden" }
-      }}
-    />
+
+
+    <div className="content-wrapper">
+      <div className="form-title">
+        <span>Test Form1</span>
+      </div>
+      <Form
+        schema={schema}
+        onSubmit={values => console.log(values)}
+        onInit={({ _component: form }) => {
+        }}
+      >
+        <div className="row">
+          <div style="width: 320px;margin:0px auto;height: 100px;padding-top: 25px;">
+            <SfButton type="reset">Temizle</SfButton>
+            <SfButton isPrimary={true}>Kaydet</SfButton>
+          </div>
+        </div>
+      </Form>
+      <SfButton isPrimary={true} onInit={
+        ({ _component: btn }) => {
+          btn.element.addEventListener("click", (e) => {
+            console.log(e)
+          })
+        }
+      }>Demo Data</SfButton>
+
+    </div>
+
   );
 };

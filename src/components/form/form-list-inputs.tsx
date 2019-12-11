@@ -15,7 +15,6 @@ export const formListInput = (props: FormGroupProps, containerId: string) => {
           id={name}
           name={name}
           placeholder={label}
-          required={true}
           containerId={containerId}
           floatLabelType="Auto"
           dataSource={props.input.listItems}
@@ -28,7 +27,6 @@ export const formListInput = (props: FormGroupProps, containerId: string) => {
           id={name}
           name={name}
           placeholder={label}
-          required={true}
           containerId={containerId}
           floatLabelType="Auto"
           dataSource={props.input.listItems}
@@ -41,7 +39,6 @@ export const formListInput = (props: FormGroupProps, containerId: string) => {
           id={name}
           name={name}
           placeholder={label}
-          required={true}
           containerId={containerId}
           dataSource={props.input.listItems.map(
             item => item.label || item.value
@@ -60,7 +57,6 @@ export const formListInput = (props: FormGroupProps, containerId: string) => {
                     id={"rd_" + item.label}
                     label={item.label}
                     name={name}
-                    required={true}
                     value={item.value}
                     containerId={containerId}
                   />
@@ -82,7 +78,6 @@ export const formListInput = (props: FormGroupProps, containerId: string) => {
                     id={"ch_" + item.label}
                     label={item.label}
                     name={name}
-                    required={true}
                     value={item.value}
                     containerId={containerId}
                   />
