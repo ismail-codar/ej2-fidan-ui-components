@@ -33,7 +33,7 @@ export interface IStateCrudState {
   onlyLocal?: boolean;
   dialogMode?: DialogModeType;
   list: IStateListState;
-  form: IStateFormState<any>;
+  form: FormModel<any>;
 }
 
 export type StateFormDataType<T> = {
@@ -45,12 +45,12 @@ export interface IStateCrudState {
   onlyLocal?: boolean;
   dialogMode?: DialogModeType;
   list: IStateListState;
-  form: IStateFormState<any>;
+  form: FormModel<any>;
   localDb?: PouchDB.Database;
   remoteDb?: PouchDB.Database;
 }
 
-export interface IStateFormState<T> extends ComponentBase<T> {
+export interface FormModel<T> {
   schema: StateFormDataType<T>;
   isValidForm?: boolean;
   isDirtyForm?: { value?: boolean };
@@ -60,14 +60,18 @@ export interface IStateFormState<T> extends ComponentBase<T> {
   onValidated?: (errors: any, values) => void;
 }
 
-export interface IStateFormHandlers {
-  editValues: (values: any) => IStateFormState<any>;
-  submitCheck: (data) => IStateFormState<any>;
-  onValidated: (errors, values) => IStateFormState<any>;
-  formRef: (node) => IStateFormState<any>;
+export interface FormComponent {
+  validator: FormValidator
 }
 
-export const Form = (props: IStateFormState<any>) => {
+export interface IStateFormHandlers {
+  editValues: (values: any) => FormModel<any>;
+  submitCheck: (data) => FormModel<any>;
+  onValidated: (errors, values) => FormModel<any>;
+  formRef: (node) => FormModel<any>;
+}
+
+export const Form = (props: FormModel<any> & ComponentBase<FormComponent>) => {
   setFormSchemaDefaults(props.schema);
   const inputKeys = Object.keys(props.schema);
 
@@ -83,24 +87,24 @@ export const Form = (props: IStateFormState<any>) => {
     </form>
   );
 
-  var formObj = new FormValidator(
+  var validator = new FormValidator(
     view,
     formSchemaToEj2ValidatorModel(props.schema)
   );
   window.requestAnimationFrame(() => {
     view.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (formObj.validate()) {
-        formObj.reset();
+      if (validator.validate()) {
+        validator.reset();
       }
     });
-    formObj.addEventListener("validationComplete", (args) => {
+    validator.addEventListener("validationComplete", (args) => {
       console.log(args)
     })
   });
 
   props._view = view;
-  props._component = formObj;
+  props._component.validator = validator;
   props && props.onInit && props.onInit(props);
 
   return view;
