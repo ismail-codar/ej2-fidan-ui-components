@@ -11,5 +11,4 @@ export interface InputWithMessageProps<T> extends ComponentBase<T> {
   name: string;
   placeholder?: string;
   containerId: string;
-  required: boolean;
 }
