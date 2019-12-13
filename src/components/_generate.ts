@@ -14,6 +14,21 @@ interface GenModel {
   TODO?: boolean;
 }
 
+const inputWithMessageProps = (type: string, componentName: string) => {
+  return {
+    importExtra: `import { InputWithMessageProps } from "../_base"`,
+    componentOptions: "InputWithMessageProps<" + componentName + ">",
+    view: `(<input
+    type="${type}"
+    id={props.id}
+    name={props.name}
+    required={props.required}
+    placeholder={props.placeholder}
+    data-msg-containerid={props.containerId}
+  />)`
+  }
+}
+
 const compnents: GenModel[] = [
   {
     component: "Accordion",
@@ -22,18 +37,7 @@ const compnents: GenModel[] = [
   {
     component: "AutoComplete",
     imp: "ej2-dropdowns",
-    importExtra: `import { InputWithMessageProps } from "../_base"`,
-    componentOptions: "InputWithMessageProps<AutoComplete>",
-    view: `
-    <input
-      type="text"
-      id={props.id}
-      name={props.name}
-      required={props.required}
-      placeholder={props.placeholder}
-      data-msg-containerid={props.containerId}
-    />
-  `,
+    ...inputWithMessageProps("text", "AutoComplete"),
     deferred: true
   },
   {
@@ -151,17 +155,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "DropDownList",
     imp: "ej2-dropdowns",
-    importExtra: `import { InputWithMessageProps } from "../_base"`,
-    componentOptions: "InputWithMessageProps<DropDownList>",
-    view: `
-    <input
-      type="text"
-      id={props.id}
-      name={props.name}
-      required={props.required}
-      data-msg-containerid={props.containerId}
-    />
-  `,
+    ...inputWithMessageProps("text", "DropDownList"),
     deferred: true
   },
   {
@@ -212,18 +206,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
     component: "MultiSelect",
     imp: "ej2-dropdowns",
     deferred: true,
-    importExtra: `import { InputWithMessageProps } from "../_base"`,
-    componentOptions: "InputWithMessageProps<MultiSelect>",
-    view: `
-    <input
-      type="text"
-      id={props.id}
-      name={props.name}
-      required={props.required}
-      placeholder={props.placeholder}
-      data-msg-containerid={props.containerId}
-    />
-  `
+    ...inputWithMessageProps("text", "MultiSelect"),
   },
   {
     component: "NumericTextBox",
@@ -240,33 +223,13 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "RadioButton",
     imp: "ej2-buttons",
-    importExtra: `import { InputWithMessageProps } from "../_base"`,
-    componentOptions: "InputWithMessageProps<RadioButton>",
-    view: `
-    <input
-      type="radio"
-      id={props.id}
-      name={props.name}
-      required={props.required}
-      data-msg-containerid={props.containerId}
-    />
-  `,
+    ...inputWithMessageProps("radio", "RadioButton"),
     deferred: true
   },
   {
     component: "CheckBox",
     imp: "ej2-buttons",
-    importExtra: `import { InputWithMessageProps } from "../_base"`,
-    componentOptions: "InputWithMessageProps<CheckBox>",
-    view: `
-    <input
-      type="checkbox"
-      id={props.id}
-      name={props.name}
-      required={props.required}
-      data-msg-containerid={props.containerId}
-    />
-  `,
+    ...inputWithMessageProps("checkbox", "CheckBox"),
     deferred: true
   },
   {

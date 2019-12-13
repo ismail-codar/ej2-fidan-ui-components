@@ -4,6 +4,7 @@ export interface ComponentBase<T> {
   _component?: T;
   _view?: HTMLElement;
   onInit?(props: ComponentBase<T>);
+  required?: boolean;
 }
 
 export interface InputWithMessageProps<T> extends ComponentBase<T> {
