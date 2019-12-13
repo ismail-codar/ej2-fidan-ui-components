@@ -2,5 +2,6 @@
 .cache
 yalc.lock
 yarn.lock
+yarn-error.log
 dist
 node_modules

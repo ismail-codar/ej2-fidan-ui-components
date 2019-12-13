@@ -1,0 +1,28 @@
+.control-section .row {
+  margin: 20px 0;
+}
+
+.form-title {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.e-error,
+.e-float-text {
+  font-weight: 500;
+}
+
+table,
+td,
+th {
+  padding: 5px;
+}
+
+.form-horizontal .form-group {
+  margin-left: 20px;
+  margin-right: 20px;
+}
