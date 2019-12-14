@@ -8,6 +8,7 @@ export const SfMultiSelect = (props: MultiSelectModel & InputWithMessageProps<Mu
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
+    value={props.inputValue()}
     data-msg-containerid={props.containerId}
   />);
 

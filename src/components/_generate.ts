@@ -24,6 +24,7 @@ const inputWithMessageProps = (type: string, componentName: string) => {
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
+    value={props.value()}
     data-msg-containerid={props.containerId}
   />)`
   }
@@ -196,7 +197,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "MaskedTextBox",
-    imp: "ej2-inputs"
+    imp: "ej2-inputs",
   },
   {
     component: "Menu",
@@ -294,7 +295,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "TextBox",
     imp: "ej2-inputs",
-    view: '<input type="text" id={props.id} />',
+    ...inputWithMessageProps("text", "TextBox"),
     deferred: true
   },
   {
