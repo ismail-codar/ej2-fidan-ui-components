@@ -6,6 +6,7 @@ export const SfDateRangePicker = (props: DateRangePickerModel & ComponentBase<Da
 
   window.requestAnimationFrame(() => {
     let _component: DateRangePicker = new DateRangePicker(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

@@ -6,6 +6,7 @@ export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase<Da
 
   window.requestAnimationFrame(() => {
     let _component: DashboardLayout = new DashboardLayout(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

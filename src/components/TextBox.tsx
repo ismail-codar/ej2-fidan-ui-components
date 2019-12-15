@@ -8,12 +8,13 @@ export const SfTextBox = (props: TextBoxModel & InputWithMessageProps<TextBox>) 
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.inputValue()}
+    value={props.value()}
     data-msg-containerid={props.containerId}
   />);
 
   window.requestAnimationFrame(() => {
     let _component: TextBox = new TextBox(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

@@ -354,6 +354,7 @@ export const Sf${cmp} = (props: ${model + propsExtra} & ${
     deferred
       ? `window.requestAnimationFrame(() => {
     let _component: ${cmp} = new ${cmp}(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });`

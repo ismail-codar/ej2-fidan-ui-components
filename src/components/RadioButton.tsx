@@ -8,12 +8,13 @@ export const SfRadioButton = (props: RadioButtonModel & InputWithMessageProps<Ra
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.inputValue()}
+    value={props.value()}
     data-msg-containerid={props.containerId}
   />);
 
   window.requestAnimationFrame(() => {
     let _component: RadioButton = new RadioButton(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

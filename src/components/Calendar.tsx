@@ -6,6 +6,7 @@ export const SfCalendar = (props: CalendarModel & ComponentBase<Calendar>) => {
 
   window.requestAnimationFrame(() => {
     let _component: Calendar = new Calendar(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

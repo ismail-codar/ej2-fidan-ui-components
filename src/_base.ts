@@ -14,5 +14,5 @@ export interface InputWithMessageProps<T> extends ComponentBase<T> {
   name: string;
   placeholder?: string;
   containerId: string;
-  inputValue: FidanValue<any>
+  inputValue?: FidanValue<any>
 }

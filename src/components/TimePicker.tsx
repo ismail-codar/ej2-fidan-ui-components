@@ -6,6 +6,7 @@ export const SfTimePicker = (props: TimePickerModel & ComponentBase<TimePicker>)
 
   window.requestAnimationFrame(() => {
     let _component: TimePicker = new TimePicker(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

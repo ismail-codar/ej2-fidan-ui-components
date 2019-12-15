@@ -8,12 +8,13 @@ export const SfAutoComplete = (props: AutoCompleteModel & InputWithMessageProps<
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.inputValue()}
+    value={props.value()}
     data-msg-containerid={props.containerId}
   />);
 
   window.requestAnimationFrame(() => {
     let _component: AutoComplete = new AutoComplete(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

@@ -6,6 +6,7 @@ export const SfColorPicker = (props: ColorPickerModel & ComponentBase<ColorPicke
 
   window.requestAnimationFrame(() => {
     let _component: ColorPicker = new ColorPicker(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

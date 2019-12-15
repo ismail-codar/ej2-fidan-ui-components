@@ -6,6 +6,7 @@ export const SfComboBox = (props: ComboBoxModel & ComponentBase<ComboBox>) => {
 
   window.requestAnimationFrame(() => {
     let _component: ComboBox = new ComboBox(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

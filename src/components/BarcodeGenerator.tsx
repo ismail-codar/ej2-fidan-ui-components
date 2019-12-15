@@ -6,6 +6,7 @@ export const SfBarcodeGenerator = (props: BarcodeGeneratorModel & ComponentBase<
 
   window.requestAnimationFrame(() => {
     let _component: BarcodeGenerator = new BarcodeGenerator(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });

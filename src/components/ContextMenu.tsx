@@ -6,6 +6,7 @@ export const SfContextMenu = (props: ContextMenuModel & ComponentBase<ContextMen
 
   window.requestAnimationFrame(() => {
     let _component: ContextMenu = new ContextMenu(props);
+    props._component = _component;
     _component.appendTo(_view);
     props && props.onInit && props.onInit(props);
   });
