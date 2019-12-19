@@ -8,7 +8,7 @@ export const SfRadioButton = (props: RadioButtonModel & InputWithMessageProps<Ra
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.value()}
+    value={props.inputValue()}
     data-msg-containerid={props.containerId}
   />);
 

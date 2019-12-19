@@ -14,7 +14,7 @@ interface GenModel {
   TODO?: boolean;
 }
 
-const inputWithMessageProps = (type: string, componentName: string) => {
+const inputWithMessageProps = (type: string, componentName: string, customValue?: boolean) => {
   return {
     importExtra: `import { InputWithMessageProps } from "../_base"`,
     componentOptions: "InputWithMessageProps<" + componentName + ">",
@@ -23,8 +23,8 @@ const inputWithMessageProps = (type: string, componentName: string) => {
     id={props.id}
     name={props.name}
     required={props.required}
-    placeholder={props.placeholder}
-    value={props.value()}
+    placeholder={props.placeholder}${ customValue ? "" : `
+    value={props.inputValue()}`}
     data-msg-containerid={props.containerId}
   />)`
   }
@@ -156,7 +156,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "DropDownList",
     imp: "ej2-dropdowns",
-    ...inputWithMessageProps("text", "DropDownList"),
+    ...inputWithMessageProps("text", "DropDownList", true),
     deferred: true
   },
   {

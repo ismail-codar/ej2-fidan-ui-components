@@ -8,7 +8,6 @@ export const SfDropDownList = (props: DropDownListModel & InputWithMessageProps<
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.value()}
     data-msg-containerid={props.containerId}
   />);
 

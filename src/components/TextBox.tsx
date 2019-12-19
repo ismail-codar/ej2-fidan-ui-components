@@ -8,7 +8,7 @@ export const SfTextBox = (props: TextBoxModel & InputWithMessageProps<TextBox>) 
     name={props.name}
     required={props.required}
     placeholder={props.placeholder}
-    value={props.value()}
+    value={props.inputValue()}
     data-msg-containerid={props.containerId}
   />);
 
