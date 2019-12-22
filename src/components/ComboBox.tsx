@@ -8,7 +8,7 @@ export const SfComboBox = (props: ComboBoxModel & ComponentBase<ComboBox>) => {
     let _component: ComboBox = new ComboBox(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

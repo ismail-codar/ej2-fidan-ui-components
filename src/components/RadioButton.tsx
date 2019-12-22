@@ -16,7 +16,7 @@ export const SfRadioButton = (props: RadioButtonModel & InputWithMessageProps<Ra
     let _component: RadioButton = new RadioButton(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

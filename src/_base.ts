@@ -5,7 +5,7 @@ export interface ComponentBase<T> {
   children?: any;
   _component?: T;
   _view?: HTMLElement;
-  onInit?(props: ComponentBase<T>);
+  didMount?(props: ComponentBase<T>);
   required?: boolean;
 }
 

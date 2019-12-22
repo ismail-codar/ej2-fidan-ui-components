@@ -8,7 +8,7 @@ export const SfTimePicker = (props: TimePickerModel & ComponentBase<TimePicker>)
     let _component: TimePicker = new TimePicker(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

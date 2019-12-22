@@ -16,7 +16,7 @@ export const SfAutoComplete = (props: AutoCompleteModel & InputWithMessageProps<
     let _component: AutoComplete = new AutoComplete(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

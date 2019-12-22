@@ -16,7 +16,7 @@ export const SfMultiSelect = (props: MultiSelectModel & InputWithMessageProps<Mu
     let _component: MultiSelect = new MultiSelect(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

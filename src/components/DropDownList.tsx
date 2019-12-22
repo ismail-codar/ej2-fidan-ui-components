@@ -15,7 +15,7 @@ export const SfDropDownList = (props: DropDownListModel & InputWithMessageProps<
     let _component: DropDownList = new DropDownList(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

@@ -8,7 +8,7 @@ export const SfDatePicker = (props: DatePickerModel & ComponentBase<DatePicker>)
     let _component: DatePicker = new DatePicker(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

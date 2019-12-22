@@ -8,7 +8,7 @@ export const SfContextMenu = (props: ContextMenuModel & ComponentBase<ContextMen
     let _component: ContextMenu = new ContextMenu(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

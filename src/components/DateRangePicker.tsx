@@ -8,7 +8,7 @@ export const SfDateRangePicker = (props: DateRangePickerModel & ComponentBase<Da
     let _component: DateRangePicker = new DateRangePicker(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

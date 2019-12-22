@@ -8,7 +8,7 @@ export const SfColorPicker = (props: ColorPickerModel & ComponentBase<ColorPicke
     let _component: ColorPicker = new ColorPicker(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;

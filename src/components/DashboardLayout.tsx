@@ -8,7 +8,7 @@ export const SfDashboardLayout = (props: DashboardLayoutModel & ComponentBase<Da
     let _component: DashboardLayout = new DashboardLayout(props);
     props._component = _component;
     _component.appendTo(_view);
-    props && props.onInit && props.onInit(props);
+    props && props.didMount && props.didMount(props);
   });
 
   return _view;
