@@ -99,6 +99,7 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "ColorPicker",
     imp: "ej2-inputs",
+    ...inputWithMessageProps("text", "ColorPicker"),
     deferred: true
   },
   {
