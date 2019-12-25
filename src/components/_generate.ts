@@ -198,6 +198,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   {
     component: "MaskedTextBox",
     imp: "ej2-inputs",
+    ...inputWithMessageProps("text", "MaskedTextBox"),
+    deferred: true
   },
   {
     component: "Menu",
@@ -211,7 +213,9 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
   },
   {
     component: "NumericTextBox",
-    imp: "ej2-inputs"
+    imp: "ej2-inputs",
+    ...inputWithMessageProps("text", "MaskedTextBox"),
+    deferred: true
   },
   {
     component: "PdfViewer",
