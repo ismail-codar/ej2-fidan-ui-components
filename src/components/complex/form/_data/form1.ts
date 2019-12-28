@@ -1,8 +1,8 @@
 /**
 @fileCodeOptions: {
   "modelsPath": "../form1",
-  "stateFormPath": "../../../../../sis/model/state-form",
-  "stateListPath": "../../../../../sis/model/state-list"
+  "stateFormPath": "../../../ej2-fidan-ui/sis/model/state-form",
+  "stateListPath": "../../../ej2-fidan-ui/sis/model/state-list"
 }
 */
 
@@ -11,13 +11,13 @@
  * @list_state
  */
 export interface ITestForm1 {
-  text1: string;
-  mask1: string;
-  num1: 0;
-  date1: string;
-  list1: "a" | "b" | "c" | "d"
-  list2: ("A" | "B" | "C" | "C" | "E")[]
-  list3: ("1" | "2" | "3")[],
-  list4: "X" | "Y" | "Z"
-  list5: "K" | "L" | "M" | "N"
+	text1: string;
+	mask1: string;
+	num1: 0;
+	date1: string;
+	list1: 'a' | 'b' | 'c' | 'd';
+	list2: ('A' | 'B' | 'C' | 'C' | 'E')[];
+	list3: ('1' | '2' | '3')[];
+	list4: 'X' | 'Y' | 'Z';
+	list5: 'K' | 'L' | 'M' | 'N';
 }

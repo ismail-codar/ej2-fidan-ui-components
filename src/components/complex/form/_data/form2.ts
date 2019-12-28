@@ -1,10 +1,8 @@
-import { ICrudMusteriFormSchema } from "../../crud/crud-musteri/types";
-
 /**
 @fileCodeOptions: {
   "modelsPath": "../form2",
-  "stateFormPath": "../../../../../sis/model/state-form",
-  "stateListPath": "../../../../../sis/model/state-list"
+  "stateFormPath": "../../../ej2-fidan-ui/sis/model/state-form",
+  "stateListPath": "../../../ej2-fidan-ui/sis/model/state-list"
 }
 */
 
@@ -13,5 +11,5 @@ import { ICrudMusteriFormSchema } from "../../crud/crud-musteri/types";
  * @list_state
  */
 export interface ITestForm2 {
-    text1: string;
+	text1: string;
 }
