@@ -6,7 +6,7 @@ import { FidanValue } from '@fidanjs/runtime';
 import { formSingularInput } from './form-singular-inputs';
 import { formListInput } from './form-list-inputs';
 import { domIsVisible } from '../../../sis/utils/dom-util';
-import { ComponentBase } from '../../../_base';
+import { ComponentBase, setupComponentView } from '../../../_base';
 
 export type FormSchemaType<T> = { [key in keyof T]: IStateFormResources<any> };
 
@@ -59,8 +59,11 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 			{props.children}
 		</form>
 	);
-
 	var validator = new FormValidator(view, formSchemaToEj2ValidatorModel(schema));
+	setupComponentView(view, props, {
+		validator
+	});
+
 	validator.addEventListener('validationComplete', (args) => {
 		if (props._component.onValidated) {
 			const errorElements = Array.from<HTMLElement>(view.querySelectorAll('.e-error'));
@@ -84,7 +87,6 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 			values[key](obj[key]);
 		}
 	};
-	props && props.didMount && props.didMount(props);
 
 	return view;
 };

@@ -1,6 +1,9 @@
 
 import { ColorPicker, ColorPickerModel } from "@syncfusion/ej2-inputs";
 import { InputWithMessageProps } from "../_base"
+    
+import { setupComponentView } from '../_base';
+    
 export const SfColorPicker = (props: ColorPickerModel & InputWithMessageProps<ColorPicker>) => {
   const _view = (<input
     type="text"
@@ -11,13 +14,6 @@ export const SfColorPicker = (props: ColorPickerModel & InputWithMessageProps<Co
     value={props.inputValue()}
     data-msg-containerid={props.containerId}
   />);
-
-  window.requestAnimationFrame(() => {
-    let _component: ColorPicker = new ColorPicker(props);
-    props._component = _component;
-    _component.appendTo(_view);
-    props && props.didMount && props.didMount(props);
-  });
-
+  setupComponentView(_view, props, ColorPicker);
   return _view;
 };

@@ -1,14 +1,8 @@
-import { ComponentBase } from "../_base";
+import { ComponentBase, setupComponentView } from "../_base";
 import { Smithchart, SmithchartModel } from "@syncfusion/ej2-charts";
 
 export const SfSmithchart = (props: SmithchartModel & ComponentBase<Smithchart>) => {
   const _view = <div>{props.children}</div>;
-
-  let _component: Smithchart = new Smithchart(props);
-    props._component = _component;
-    props._view = _view;
-    _component.appendTo(_view);
-    props && props.didMount && props.didMount(props);
-
+  setupComponentView(_view, props, Smithchart);
   return _view;
 };

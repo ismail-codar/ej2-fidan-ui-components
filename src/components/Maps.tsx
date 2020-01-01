@@ -1,14 +1,8 @@
-import { ComponentBase } from "../_base";
+import { ComponentBase, setupComponentView } from "../_base";
 import { Maps, MapsModel } from "@syncfusion/ej2-maps";
 
 export const SfMaps = (props: MapsModel & ComponentBase<Maps>) => {
   const _view = <div>{props.children}</div>;
-
-  let _component: Maps = new Maps(props);
-    props._component = _component;
-    props._view = _view;
-    _component.appendTo(_view);
-    props && props.didMount && props.didMount(props);
-
+  setupComponentView(_view, props, Maps);
   return _view;
 };

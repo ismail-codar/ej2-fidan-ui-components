@@ -1,6 +1,9 @@
 
 import { DropDownList, DropDownListModel } from "@syncfusion/ej2-dropdowns";
 import { InputWithMessageProps } from "../_base"
+    
+import { setupComponentView } from '../_base';
+    
 export const SfDropDownList = (props: DropDownListModel & InputWithMessageProps<DropDownList>) => {
   const _view = (<input
     type="text"
@@ -10,13 +13,6 @@ export const SfDropDownList = (props: DropDownListModel & InputWithMessageProps<
     placeholder={props.placeholder}
     data-msg-containerid={props.containerId}
   />);
-
-  window.requestAnimationFrame(() => {
-    let _component: DropDownList = new DropDownList(props);
-    props._component = _component;
-    _component.appendTo(_view);
-    props && props.didMount && props.didMount(props);
-  });
-
+  setupComponentView(_view, props, DropDownList);
   return _view;
 };

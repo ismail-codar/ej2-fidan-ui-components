@@ -20,18 +20,19 @@ export interface InputWithMessageProps<T> extends ComponentBase<T> {
 	inputValue?: FidanValue<any>;
 }
 
-export const setupComponentView = <T>(view, ComponentClass, props: ComponentBase<T>) => {
+export const setupComponentView = <T>(view, props: ComponentBase<T>, ComponentClass) => {
+	let _component = typeof ComponentClass === 'function' ? new ComponentClass(props) : { props };
+	props._component = _component;
 	props && props.viewCreated && props.viewCreated(props);
 	onload(
 		view,
 		(el) => {
-			let _component = new ComponentClass(props);
-			props._component = _component;
-			_component.appendTo(view);
+			_component.appendTo && _component.appendTo(view);
 			props && props.didMount && props.didMount(props);
 		},
 		(el) => {
 			props && props.unMount && props.unMount(props);
 		}
 	);
+	return _component;
 };

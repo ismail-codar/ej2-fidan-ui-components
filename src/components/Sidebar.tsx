@@ -1,6 +1,8 @@
 
 import { Sidebar, SidebarModel } from "@syncfusion/ej2-navigations";
 import { SideBarProps } from "./props/SideBarProps"
+import { setupComponentView } from '../_base';
+    
 export const SfSidebar = (props: SidebarModel & SideBarProps) => {
   const _view = (
       <aside className={props.sidebarCss || "default-sidebar"}>
@@ -15,12 +17,6 @@ export const SfSidebar = (props: SidebarModel & SideBarProps) => {
         <div className={props.subTitleCss || "sub-title"}>{props.children}</div>
       </aside>
     );
-
-  let _component: Sidebar = new Sidebar(props);
-    props._component = _component;
-    props._view = _view;
-    _component.appendTo(_view);
-    props && props.didMount && props.didMount(props);
-
+  const _component = setupComponentView(_view, props, Sidebar);
   return _view;
 };

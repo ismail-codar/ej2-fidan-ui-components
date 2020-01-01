@@ -51,7 +51,7 @@ export const FormDemo = () => {
 
 			<Form
 				data={data1}
-				didMount={({ _component, _view }) => {
+				viewCreated={({ _component, _view }) => {
 					form = _component;
 					formDom = _view as any;
 					kaydetButonu.disabled = true;
@@ -68,7 +68,7 @@ export const FormDemo = () => {
 						<SfButton type="reset">Temizle</SfButton>
 						<SfButton
 							isPrimary={true}
-							didMount={({ _component }) => {
+							viewCreated={({ _component }) => {
 								kaydetButonu = _component;
 							}}
 						>
