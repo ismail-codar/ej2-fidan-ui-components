@@ -6,7 +6,9 @@ export interface ComponentBase<T> {
 	children?: any;
 	_component?: T;
 	_view?: HTMLElement;
+	viewCreated?(props: ComponentBase<T>);
 	didMount?(props: ComponentBase<T>);
+	unMount?(props: ComponentBase<T>);
 	required?: boolean;
 }
 
@@ -18,14 +20,18 @@ export interface InputWithMessageProps<T> extends ComponentBase<T> {
 	inputValue?: FidanValue<any>;
 }
 
-export const setupComponentView = (view, component) => {
+export const setupComponentView = <T>(view, ComponentClass, props: ComponentBase<T>) => {
+	props && props.viewCreated && props.viewCreated(props);
 	onload(
 		view,
 		(el) => {
-			//
+			let _component = new ComponentClass(props);
+			props._component = _component;
+			_component.appendTo(view);
+			props && props.didMount && props.didMount(props);
 		},
 		(el) => {
-			//
+			props && props.unMount && props.unMount(props);
 		}
 	);
 };
