@@ -173,7 +173,9 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
 	},
 	{
 		component: 'Grid',
-		imp: 'ej2-grids'
+		imp: 'ej2-grids',
+		importExtra: `import { Sort, Page } from '@syncfusion/ej2-grids';
+Grid.Inject(Sort, Page);`
 	},
 	{
 		component: 'HeatMap',
