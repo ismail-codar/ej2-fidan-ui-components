@@ -93,7 +93,7 @@ export const FormDemo = () => {
 				didMount={({ _component: btn }) => {
 					btn.element.addEventListener('click', (e) => {
 						data1.values.text1('2');
-						data1.setValues({
+						data1.fromJSON({
 							text1: '1a',
 							mask1: 'm2',
 							list1: 'd',

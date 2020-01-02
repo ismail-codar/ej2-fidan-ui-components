@@ -14,7 +14,8 @@ export interface FormModel<T> {
 	schema: FormSchemaType<T>;
 	// values?: { [key in keyof T]?: FidanValue<T[keyof T]> };
 	values?: { [key in keyof T]?: FidanValue<any> };
-	setValues?: (values: { [key in keyof T]?: T[keyof T] }) => void;
+	fromJSON?: (values: { [key in keyof T]?: T[keyof T] }) => void;
+	toJSON?: () => { [key in keyof T]?: T[keyof T] };
 }
 
 export interface FormComponent {
@@ -82,10 +83,17 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 	props._component = {
 		validator
 	};
-	props.data.setValues = (obj) => {
+	props.data.fromJSON = (obj) => {
 		for (var key in obj) {
 			values[key](obj[key]);
 		}
+	};
+	props.data.toJSON = () => {
+		const obj = {};
+		for (var key in values) {
+			obj[key] = values[key]();
+		}
+		return obj;
 	};
 
 	return view;
