@@ -84,7 +84,7 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 		validator
 	};
 	props.data.fromJSON = (obj) => {
-		for (var key in obj) {
+		for (var key in values) {
 			values[key](obj[key]);
 		}
 	};
