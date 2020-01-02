@@ -1,6 +1,8 @@
-import { IStateListResources } from '../../../../sis/model/state-list';
+import { IStateListResources } from '../../../sis/model/state-list';
 import { FidanArray } from '@fidanjs/runtime';
-import { ComponentBase } from '../../_base';
+import { ComponentBase } from '../_base';
+import { FormSchemaType } from '../components/complex/form/form';
+import { Column, ColumnModel } from '@syncfusion/ej2-grids';
 
 export interface IFormValidation {
 	required?: boolean;
@@ -84,6 +86,17 @@ const formItemData = (
 		Object.assign(data.reference, options.reference);
 	}
 	return data;
+};
+
+export const formSchemaToDataGridColumns = <T>(schema: FormSchemaType<T>) => {
+	const columns: ColumnModel[] = [];
+	for (var key in schema) {
+		columns.push({
+			field: key,
+			headerText: key
+		});
+	}
+	return columns;
 };
 
 export const formItems = {

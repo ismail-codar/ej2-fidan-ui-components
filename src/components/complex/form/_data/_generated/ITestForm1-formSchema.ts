@@ -1,6 +1,6 @@
 import { ITestForm1 } from '../form1';
 import { value } from '@fidanjs/runtime';
-import { IStateFormResources, formItems, formSchemas } from '../../../../../sis/model/state-form';
+import { IStateFormResources, formItems, formSchemas } from '../../../../../utils/state-form';
 
 export const formItemsITestForm1: () => { [key in keyof ITestForm1]: IStateFormResources<any> } = () => ({
 	text1: formItems.string({

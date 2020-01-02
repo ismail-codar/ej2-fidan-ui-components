@@ -1,11 +1,11 @@
 import './form-styles.scss';
-import { IStateFormResources } from '../../../sis/model/state-form';
+import { IStateFormResources } from '../../../utils/state-form';
 import { FormValidator, FormValidatorModel } from '@syncfusion/ej2-inputs';
 import { formSchemaToEj2ValidatorModel, setFormSchemaDefaults, setFormValuesDefaults } from './form-util';
 import { FidanValue } from '@fidanjs/runtime';
 import { formSingularInput } from './form-singular-inputs';
 import { formListInput } from './form-list-inputs';
-import { domIsVisible } from '../../../sis/utils/dom-util';
+import { domIsVisible } from '../../../utils/dom-util';
 import { ComponentBase, setupComponentView } from '../../../_base';
 
 export type FormSchemaType<T> = { [key in keyof T]: IStateFormResources<any> };
