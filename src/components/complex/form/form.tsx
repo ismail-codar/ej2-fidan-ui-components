@@ -42,6 +42,9 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 		<form className="form-horizontal" novalidate="">
 			{inputKeys.map((inputKey) => {
 				const input = schema[inputKey];
+				if (input.hidden) {
+					return <div />; // TODO fixedInputValues
+				}
 				const containerId = 'fg_' + Math.random().toString(36).substr(2);
 
 				let inputView = null;
