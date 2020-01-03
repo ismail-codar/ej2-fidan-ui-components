@@ -91,6 +91,10 @@ const formItemData = (
 export const formSchemaToDataGridColumns = <T>(schema: FormSchemaType<T>) => {
 	const columns: ColumnModel[] = [];
 	for (var key in schema) {
+		const input = schema[key];
+		if (input.hidden) {
+			continue;
+		}
 		columns.push({
 			field: key,
 			headerText: key

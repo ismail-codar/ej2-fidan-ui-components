@@ -21,9 +21,10 @@ export interface InputWithMessageProps<T> extends ComponentBase<T> {
 }
 
 export const setupComponentView = <T>(view, props: ComponentBase<T>, ComponentClass) => {
-	let _component = typeof ComponentClass === 'function' ? new ComponentClass(props) : { props };
+	let _component = typeof ComponentClass === 'function' ? new ComponentClass(props) : ComponentClass;
 	_component.element = view;
 	props._component = _component;
+	props._view = view;
 	props && props.viewCreated && props.viewCreated(props);
 	onload(
 		view,

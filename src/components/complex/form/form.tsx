@@ -40,26 +40,28 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 
 	const view: HTMLFormElement = (
 		<form className="form-horizontal" novalidate="">
-			{inputKeys.map((inputKey) => {
-				const input = schema[inputKey];
-				if (input.hidden) {
-					return <div />; // TODO fixedInputValues
-				}
-				const containerId = 'fg_' + Math.random().toString(36).substr(2);
+			{inputKeys
+				.map((inputKey) => {
+					const input = schema[inputKey];
+					if (input.hidden) {
+						return undefined;
+					}
+					const containerId = 'fg_' + Math.random().toString(36).substr(2);
 
-				let inputView = null;
-				const inputProp = { input, value: values[inputKey] };
-				if (input.listItems) {
-					inputView = formListInput(inputProp, containerId);
-				} else {
-					inputView = formSingularInput(inputProp, containerId);
-				}
-				return (
-					<div className="form-group">
-						{inputView} <div id={containerId} />
-					</div>
-				);
-			})}
+					let inputView = null;
+					const inputProp = { input, value: values[inputKey] };
+					if (input.listItems) {
+						inputView = formListInput(inputProp, containerId);
+					} else {
+						inputView = formSingularInput(inputProp, containerId);
+					}
+					return (
+						<div className="form-group">
+							{inputView} <div id={containerId} />
+						</div>
+					);
+				})
+				.filter((item) => item !== undefined)}
 			{props.children}
 		</form>
 	);
@@ -82,13 +84,9 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 		}
 	});
 
-	props._view = view;
-	props._component = {
-		validator
-	};
 	props.data.fromJSON = (obj) => {
 		for (var key in values) {
-			values[key](obj[key]);
+			values[key](obj[key] === undefined ? null : obj[key]);
 		}
 	};
 	props.data.toJSON = () => {

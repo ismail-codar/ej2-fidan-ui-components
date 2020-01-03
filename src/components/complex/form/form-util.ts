@@ -8,7 +8,10 @@ export const formSchemaToEj2ValidatorModel = (schema: FormSchemaType<any>) => {
 	};
 	for (var key in schema) {
 		const input = schema[key];
-		const { validation } = input;
+		const { validation, hidden } = input;
+		if (hidden) {
+			continue;
+		}
 		if (!formValidation.rules[key]) {
 			formValidation.rules[key] = {};
 		}
