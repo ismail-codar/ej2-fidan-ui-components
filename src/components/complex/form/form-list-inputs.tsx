@@ -4,7 +4,7 @@ import { SfRadioButton } from '../../RadioButton';
 import { SfCheckBox } from '../../CheckBox';
 import { SfAutoComplete } from '../../AutoComplete';
 import { SfDropDownList } from '../../DropDownList';
-import { compute, transformToDataArrayEvents } from '@fidanjs/runtime';
+import { compute } from '@fidanjs/runtime';
 import { DropDownBase } from '@syncfusion/ej2-dropdowns';
 import { Component } from '@syncfusion/ej2-base';
 
@@ -50,19 +50,8 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 
 	compute<any[]>(
 		(val, opt) => {
-			transformToDataArrayEvents(opt, {
-				onAdd: (args) => {
-					args.forEach((item) => {
-						dropdown.addItem(item);
-					});
-				},
-				onRemove: (args) => {
-					args.forEach((item) => {
-						const idx = dataSource.indexOf(item);
-						dropdown['liCollections'][idx].remove();
-					});
-				}
-			});
+			dropdown.dataSource = val;
+			dataSource = dropdown.dataSource as any;
 		},
 		[ props.input.listItems ]
 	);
