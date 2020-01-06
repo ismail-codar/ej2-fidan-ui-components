@@ -31,6 +31,7 @@ export interface IStateFormResources<T> {
 		| 'time-picker'
 		| 'daterange-picker';
 	listWidgetType?: 'radiobuttons' | 'checkboxlist' | 'autocomplete' | 'dropdownlist' | 'multiselect';
+	useLabelValue?: boolean;
 	listItems?: FidanArray<
 		{
 			value: any;

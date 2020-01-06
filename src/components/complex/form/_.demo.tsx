@@ -15,7 +15,7 @@ export const FormDemo = () => {
 			num1: value(1),
 			date1: value(new Date()),
 			mask1: value('534-321-2234'),
-			list1: value('b'),
+			list1: value({ value: 'b', label: 'b' }),
 			list2: value([ 'A', 'E' ]),
 			list3: value([ '1', '3' ]),
 			list4: value('Y'),
@@ -40,6 +40,7 @@ export const FormDemo = () => {
 		{ label: 'c', value: 'c' },
 		{ label: 'd', value: 'd' }
 	]);
+	schema.list1.useLabelValue = true;
 	setTimeout(() => {
 		schema.list4.listItems().push({
 			label: 'A',
@@ -102,7 +103,7 @@ export const FormDemo = () => {
 						data1.fromJSON({
 							text1: '1a',
 							mask1: 'm2',
-							list1: 'd',
+							list1: { label: 'd', value: 'd' },
 							list2: [ 'C', 'B' ],
 							list3: [ '1', '2' ],
 							list4: 'Z',

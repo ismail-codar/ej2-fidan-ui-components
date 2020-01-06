@@ -14,7 +14,7 @@ export interface FormModel<T> {
 	schema: FormSchemaType<T>;
 	// values?: { [key in keyof T]?: FidanValue<T[keyof T]> };
 	values?: { [key in keyof T]?: FidanValue<any> };
-	fromJSON?: (values: { [key in keyof T]?: T[keyof T] }) => void;
+	fromJSON?: (values: { [key in keyof T]?: T[keyof T] | { value: T[keyof T]; label: string } }) => void;
 	toJSON?: () => { [key in keyof T]?: T[keyof T] };
 }
 

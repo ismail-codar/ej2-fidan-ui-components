@@ -7,6 +7,13 @@ import { SfDropDownList } from '../../DropDownList';
 import { DropDownBase } from '@syncfusion/ej2-dropdowns';
 import { Component } from '@syncfusion/ej2-base';
 
+const componentValue = (val, useLabelValue: boolean) => {
+	if (val === null) {
+		return null;
+	}
+	return useLabelValue ? val.value : val;
+};
+
 const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: string }[]) => ({
 	_component,
 	_view
@@ -18,10 +25,11 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 	props.input[readOnlyProp] = _view;
 	const element = dropdown.element as HTMLInputElement;
 	element.name = props.input.name;
-	dropdown.value = props.value();
+	dropdown.value = componentValue(props.value(), props.input.useLabelValue);
 
 	props.value.depends([
 		(val) => {
+			val = componentValue(val, props.input.useLabelValue);
 			if (val !== undefined && dropdown.value !== val) {
 				dropdown.value = val;
 			}
@@ -29,8 +37,15 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 	]);
 
 	dropdown.addEventListener('change', () => {
-		if (props.value() !== dropdown.value) {
-			props.value(dropdown.value);
+		const propValue = props.value();
+		const val = componentValue(propValue, props.input.useLabelValue);
+		if (val !== dropdown.value) {
+			if (props.input.useLabelValue) {
+				const selectedItem = dataSource.find((item) => item.value === dropdown.value);
+				props.value(selectedItem);
+			} else {
+				props.value(dropdown.value);
+			}
 		}
 	});
 
