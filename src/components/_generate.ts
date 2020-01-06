@@ -174,8 +174,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
 	{
 		component: 'Grid',
 		imp: 'ej2-grids',
-		importExtra: `import { Sort, Page } from '@syncfusion/ej2-grids';
-Grid.Inject(Sort, Page);`
+		importExtra: `import { Sort, Page, DetailRow } from '@syncfusion/ej2-grids';
+Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'HeatMap',
@@ -265,8 +265,8 @@ Grid.Inject(Sort, Page);`
 		componentOptions: 'SideBarProps',
 		imp: 'ej2-navigations',
 		view: `(
-      <aside className={props.sidebarCss || "default-sidebar"}>
-        <div className={props.titleHeaderCss || "title-header"}>
+      <aside className={props.sidebarCss || "sidebar-container"}>
+        <div className={props.titleHeaderCss || "sidebar-title-header"}>
           <div style="display:inline-block"> {props.title} </div>
           <span
             id="close"
@@ -274,7 +274,7 @@ Grid.Inject(Sort, Page);`
             onClick={() => _component.hide()}
           />
         </div>
-        <div className={props.subTitleCss || "sub-title"}>{props.children}</div>
+        <div className={props.subTitleCss || "sidebar-content"}>{props.children}</div>
       </aside>
     )`
 	},
