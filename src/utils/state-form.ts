@@ -101,8 +101,10 @@ export const formSchemaToDataGridColumns = <T>(schema: FormSchemaType<T>) => {
 			headerText: key
 		};
 		if (input.useLabelValue) {
-			column.template =
-				'${for(item of ' + key + ')}${item.label}${if(itemIndex<' + key + '.length-1)},${/if} ${/for}';
+			if (input.listItems)
+				column.template =
+					'${for(item of ' + key + ')}${item.label}${if(itemIndex<' + key + '.length-1)},${/if} ${/for}';
+			else column.template = '${' + key + '.label}';
 		}
 		columns.push(column);
 	}
