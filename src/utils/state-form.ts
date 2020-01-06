@@ -96,10 +96,14 @@ export const formSchemaToDataGridColumns = <T>(schema: FormSchemaType<T>) => {
 		if (input.hidden) {
 			continue;
 		}
-		columns.push({
+		const column: ColumnModel = {
 			field: key,
 			headerText: key
-		});
+		};
+		if (input.useLabelValue) {
+			column.template = '${for(role of roles)}${role.label}${if(roleIndex<roles.length-1)},${/if} ${/for}';
+		}
+		columns.push(column);
 	}
 	return columns;
 };
