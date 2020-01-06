@@ -6,6 +6,18 @@ import { ITestForm1 } from '../form/_data/form1';
 import { MaskedTextBoxModel } from '@syncfusion/ej2-inputs';
 import { SfButton } from '../../Button';
 
+const useLabelValue = false;
+const toLabelValue = (val) => {
+	if (useLabelValue) {
+		if (Array.isArray(val)) {
+			val = val.map((item) => ({ value: val, label: val }));
+		} else {
+			val = { value: val, label: val };
+		}
+	}
+	return val;
+};
+
 export const FormDemo = () => {
 	const schema = formItemsITestForm1();
 	const data1: FormModel<ITestForm1> = {
@@ -15,11 +27,11 @@ export const FormDemo = () => {
 			num1: value(1),
 			date1: value(new Date()),
 			mask1: value('534-321-2234'),
-			list1: value({ value: 'b', label: 'b' }),
-			list2: value([ { label: 'A', value: 'A' }, { label: 'E', value: 'E' } ]),
-			list3: value([ '1', '3' ]),
-			list4: value('Y'),
-			list5: value('K')
+			list1: value(toLabelValue('b')),
+			list2: value(toLabelValue([ 'A', 'E' ])),
+			list3: value(toLabelValue([ '1', '3' ])),
+			list4: value(toLabelValue('Y')),
+			list5: value(toLabelValue('K'))
 		}
 	};
 
@@ -33,9 +45,13 @@ export const FormDemo = () => {
 
 	let form: FormComponent = null;
 	let formDom: HTMLFormElement = null;
-
-	schema.list1.useLabelValue = true;
-	schema.list2.useLabelValue = true;
+	if (useLabelValue) {
+		schema.list1.useLabelValue = true;
+		schema.list2.useLabelValue = true;
+		schema.list3.useLabelValue = true;
+		schema.list4.useLabelValue = true;
+		schema.list5.useLabelValue = true;
+	}
 
 	schema.list1.listItems([
 		{ label: 'a', value: 'a' },
@@ -105,11 +121,11 @@ export const FormDemo = () => {
 						data1.fromJSON({
 							text1: '1a',
 							mask1: 'm2',
-							list1: { label: 'd', value: 'd' },
-							list2: [ { label: 'C', value: 'C' }, { label: 'B', value: 'B' } ],
-							list3: [ '1', '2' ],
-							list4: 'Z',
-							list5: 'M'
+							list1: toLabelValue('d'),
+							list2: toLabelValue([ 'C', 'B' ]),
+							list3: toLabelValue([ '1', '2' ]),
+							list4: toLabelValue('Z'),
+							list5: toLabelValue('M')
 						});
 					});
 				}}
