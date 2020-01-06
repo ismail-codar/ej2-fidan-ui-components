@@ -14,6 +14,22 @@ const componentValue = (val, useLabelValue: boolean) => {
 	return useLabelValue ? (Array.isArray(val) ? val.map((item) => item.value) : val.value) : val;
 };
 
+const setPropValue = (props: FormGroupProps, dataSource, val) => {
+	if (props.input.useLabelValue) {
+		if (Array.isArray(val)) {
+			const selectedItems = dataSource
+				.filter((item) => val.indexOf(item.value) !== -1)
+				.map((item) => ({ label: item.label, value: item.value }));
+			props.value(selectedItems);
+		} else {
+			const selectedItem = dataSource.find((item) => item.value === val);
+			props.value({ label: selectedItem.label, value: selectedItem.value });
+		}
+	} else {
+		props.value(val);
+	}
+};
+
 const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: string }[]) => ({
 	_component,
 	_view
@@ -40,17 +56,7 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 		const propValue = props.value();
 		const val = componentValue(propValue, props.input.useLabelValue);
 		if (val !== dropdown.value) {
-			if (props.input.useLabelValue) {
-				if (Array.isArray(dropdown.value)) {
-					const selectedItems = dataSource.filter((item) => dropdown.value.indexOf(item.value) !== -1);
-					props.value(selectedItems);
-				} else {
-					const selectedItem = dataSource.find((item) => item.value === dropdown.value);
-					props.value(selectedItem);
-				}
-			} else {
-				props.value(dropdown.value);
-			}
+			setPropValue(props, dataSource, dropdown.value);
 		}
 	});
 
@@ -107,13 +113,14 @@ const singularListItemOnInit = (props: FormGroupProps, item: { value: any; label
 	props.input[readOnlyProp] = _view;
 	const element = singularListItem.element as HTMLInputElement;
 	element.name = props.input.name;
-	const propValue = props.value();
+	const propValue = componentValue(props.value(), props.input.useLabelValue);
 
 	const listItems = props.input.listItems();
 	singularListItemCheck(propValue, listItems, singularListItem);
 
 	props.value.depends([
 		(val) => {
+			val = componentValue(val, props.input.useLabelValue);
 			if (val !== undefined && val !== singularListItem.value) {
 				singularListItemCheck(val, props.input.listItems(), singularListItem);
 			}
@@ -130,9 +137,10 @@ const singularListItemOnInit = (props: FormGroupProps, item: { value: any; label
 				const idx = propValue.findIndex((item) => item === listItem.value);
 				propValue.splice(idx, 1);
 			}
+			setPropValue(props, props.input.listItems(), propValue);
 		} else if (propValue !== singularListItem.value) {
 			singularListItem.value = listItem.value;
-			props.value(singularListItem.value);
+			setPropValue(props, props.input.listItems(), singularListItem.value);
 		}
 	});
 };

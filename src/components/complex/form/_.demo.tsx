@@ -6,15 +6,16 @@ import { ITestForm1 } from '../form/_data/form1';
 import { MaskedTextBoxModel } from '@syncfusion/ej2-inputs';
 import { SfButton } from '../../Button';
 
-const useLabelValue = false;
+const useLabelValue = true;
 const toLabelValue = (val) => {
 	if (useLabelValue) {
 		if (Array.isArray(val)) {
-			val = val.map((item) => ({ value: val, label: val }));
+			val = val.map((item) => ({ value: item, label: item }));
 		} else {
 			val = { value: val, label: val };
 		}
 	}
+	console.log(val);
 	return val;
 };
 
