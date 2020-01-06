@@ -34,6 +34,12 @@ export const FormDemo = () => {
 	let form: FormComponent = null;
 	let formDom: HTMLFormElement = null;
 
+	schema.list1.listItems([
+		{ label: 'a', value: 'a' },
+		{ label: 'b', value: 'b' },
+		{ label: 'c', value: 'c' },
+		{ label: 'd', value: 'd' }
+	]);
 	setTimeout(() => {
 		schema.list4.listItems().push({
 			label: 'A',

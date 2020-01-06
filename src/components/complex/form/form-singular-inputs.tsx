@@ -1,7 +1,6 @@
 import { FormGroupProps } from './form';
 import { SfTextBox } from '../../TextBox';
 import { Component } from '@syncfusion/ej2-base';
-import { compute } from '@fidanjs/runtime';
 import { SfMaskedTextBox } from '../../MaskedTextBox';
 import { SfNumericTextBox } from '../../NumericTextBox';
 import { SfDatePicker } from '../../DatePicker';
@@ -19,14 +18,13 @@ export const singularInputOnInit = (props: FormGroupProps) => ({ _component, _vi
 	element.name = props.input.name;
 	singularInput.value = props.value();
 
-	compute(
+	props.value.depends([
 		(val) => {
 			if (val !== undefined && singularInput.value !== val) {
 				singularInput.value = val;
 			}
-		},
-		[ props.value ]
-	);
+		}
+	]);
 
 	singularInput.addEventListener('change', (arg) => {
 		const newValue = arg.maskedValue || arg.value;

@@ -4,7 +4,6 @@ import { SfRadioButton } from '../../RadioButton';
 import { SfCheckBox } from '../../CheckBox';
 import { SfAutoComplete } from '../../AutoComplete';
 import { SfDropDownList } from '../../DropDownList';
-import { compute } from '@fidanjs/runtime';
 import { DropDownBase } from '@syncfusion/ej2-dropdowns';
 import { Component } from '@syncfusion/ej2-base';
 
@@ -21,14 +20,13 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 	element.name = props.input.name;
 	dropdown.value = props.value();
 
-	compute(
+	props.value.depends([
 		(val) => {
 			if (val !== undefined && dropdown.value !== val) {
 				dropdown.value = val;
 			}
-		},
-		[ props.value ]
-	);
+		}
+	]);
 
 	dropdown.addEventListener('change', () => {
 		if (props.value() !== dropdown.value) {
@@ -48,13 +46,12 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 		element.dispatchEvent(new Event('focusout'));
 	});
 
-	compute<any[]>(
-		(val, opt) => {
+	props.input.listItems.depends([
+		(val) => {
 			dropdown.dataSource = val;
 			dataSource = dropdown.dataSource as any;
-		},
-		[ props.input.listItems ]
-	);
+		}
+	]);
 };
 
 const singularListItemCheck = (
@@ -95,14 +92,13 @@ const singularListItemOnInit = (props: FormGroupProps, item: { value: any; label
 	const listItems = props.input.listItems();
 	singularListItemCheck(propValue, listItems, singularListItem);
 
-	compute(
+	props.value.depends([
 		(val) => {
 			if (val !== undefined && val !== singularListItem.value) {
 				singularListItemCheck(val, props.input.listItems(), singularListItem);
 			}
-		},
-		[ props.value ]
-	);
+		}
+	]);
 
 	singularListItem.addEventListener('change', ({ event }) => {
 		const target: HTMLInputElement = event.target;
