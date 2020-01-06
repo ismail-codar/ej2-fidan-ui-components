@@ -11,7 +11,7 @@ const componentValue = (val, useLabelValue: boolean) => {
 	if (val === null) {
 		return null;
 	}
-	return useLabelValue ? val.value : val;
+	return useLabelValue ? (Array.isArray(val) ? val.map((item) => item.value) : val.value) : val;
 };
 
 const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: string }[]) => ({
@@ -41,8 +41,13 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 		const val = componentValue(propValue, props.input.useLabelValue);
 		if (val !== dropdown.value) {
 			if (props.input.useLabelValue) {
-				const selectedItem = dataSource.find((item) => item.value === dropdown.value);
-				props.value(selectedItem);
+				if (Array.isArray(dropdown.value)) {
+					const selectedItems = dataSource.filter((item) => dropdown.value.indexOf(item.value) !== -1);
+					props.value(selectedItems);
+				} else {
+					const selectedItem = dataSource.find((item) => item.value === dropdown.value);
+					props.value(selectedItem);
+				}
 			} else {
 				props.value(dropdown.value);
 			}

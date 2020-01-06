@@ -16,7 +16,7 @@ export const FormDemo = () => {
 			date1: value(new Date()),
 			mask1: value('534-321-2234'),
 			list1: value({ value: 'b', label: 'b' }),
-			list2: value([ 'A', 'E' ]),
+			list2: value([ { label: 'A', value: 'A' }, { label: 'E', value: 'E' } ]),
 			list3: value([ '1', '3' ]),
 			list4: value('Y'),
 			list5: value('K')
@@ -34,13 +34,15 @@ export const FormDemo = () => {
 	let form: FormComponent = null;
 	let formDom: HTMLFormElement = null;
 
+	schema.list1.useLabelValue = true;
+	schema.list2.useLabelValue = true;
+
 	schema.list1.listItems([
 		{ label: 'a', value: 'a' },
 		{ label: 'b', value: 'b' },
 		{ label: 'c', value: 'c' },
 		{ label: 'd', value: 'd' }
 	]);
-	schema.list1.useLabelValue = true;
 	setTimeout(() => {
 		schema.list4.listItems().push({
 			label: 'A',
@@ -104,7 +106,7 @@ export const FormDemo = () => {
 							text1: '1a',
 							mask1: 'm2',
 							list1: { label: 'd', value: 'd' },
-							list2: [ 'C', 'B' ],
+							list2: [ { label: 'C', value: 'C' }, { label: 'B', value: 'B' } ],
 							list3: [ '1', '2' ],
 							list4: 'Z',
 							list5: 'M'
