@@ -5,6 +5,6 @@ export interface SideBarProps extends ComponentBase<Sidebar> {
 	title: string;
 	sidebarCss?: string;
 	subTitleCss?: string;
-	eIconsCss?: string;
+	closeIconCss?: string;
 	titleHeaderCss?: string;
 }
