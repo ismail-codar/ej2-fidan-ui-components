@@ -172,7 +172,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`,
 	},
 	{
 		component: 'Gantt',
-		imp: 'ej2-gantt'
+		imp: 'ej2-gantt',
+		TODO: true
 	},
 	{
 		component: 'Grid',
@@ -234,7 +235,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'PivotView',
-		imp: 'ej2-pivotview'
+		imp: 'ej2-pivotview',
+		TODO: true
 	},
 	{
 		component: 'RadioButton',
