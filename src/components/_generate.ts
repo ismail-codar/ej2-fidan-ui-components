@@ -89,7 +89,8 @@ const compnents: GenModel[] = [
   DateTime,
   Legend
 } from "@syncfusion/ej2-charts/dist/es6/ej2-charts.es2015.js";
-Chart.Inject(AreaSeries, DateTime, Legend);`
+Chart.Inject(AreaSeries, DateTime, Legend);`,
+		TODO: true
 	},
 	{
 		component: 'ChipList',
@@ -147,7 +148,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
 	},
 	{
 		component: 'Diagram',
-		imp: 'ej2-diagrams'
+		imp: 'ej2-diagrams',
+		TODO: true
 	},
 	{
 		component: 'Dialog',
@@ -155,7 +157,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`
 	},
 	{
 		component: 'DocumentEditorContainer',
-		imp: 'ej2-documenteditor'
+		imp: 'ej2-documenteditor',
+		TODO: true
 	},
 	{
 		component: 'DropDownList',
@@ -183,7 +186,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'InPlaceEditor',
-		imp: 'ej2-inplace-editor'
+		imp: 'ej2-inplace-editor',
+		TODO: true
 	},
 	{
 		component: 'LinearGauge',
@@ -225,7 +229,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'PdfViewer',
-		imp: 'ej2-pdfviewer'
+		imp: 'ej2-pdfviewer',
+		TODO: true
 	},
 	{
 		component: 'PivotView',
@@ -249,7 +254,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'RangeNavigator',
-		imp: 'ej2-charts'
+		imp: 'ej2-charts',
+		TODO: true
 	},
 	{
 		component: 'RichTextEditor',
@@ -284,11 +290,13 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'Smithchart',
-		imp: 'ej2-charts'
+		imp: 'ej2-charts',
+		TODO: true
 	},
 	{
 		component: 'Sparkline',
-		imp: 'ej2-charts'
+		imp: 'ej2-charts',
+		TODO: true
 	},
 	{
 		component: 'Splitter',
@@ -296,7 +304,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'StockChart',
-		imp: 'ej2-charts'
+		imp: 'ej2-charts',
+		TODO: true
 	},
 	{
 		component: 'Tab',
@@ -326,7 +335,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'TreeGrid',
-		imp: 'ej2-treegrid'
+		imp: 'ej2-treegrid',
+		TODO: true
 	},
 	{
 		component: 'TreeMap',
