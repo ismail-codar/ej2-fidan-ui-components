@@ -4,7 +4,7 @@ import { InputWithMessageProps } from "../_base"
     
 import { setupComponentView } from '../_base';
     
-export const SfNumericTextBox = (props: NumericTextBoxModel & InputWithMessageProps<MaskedTextBox>) => {
+export const SfNumericTextBox = (props: NumericTextBoxModel & InputWithMessageProps<NumericTextBox>) => {
   const _view = (<input
     type="text"
     id={props.id}

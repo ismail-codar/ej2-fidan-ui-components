@@ -1,18 +1,40 @@
 {
-	"name": "appid",
+	"name": "ej2-fidan-ui-components",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
 	"scripts": {
 		"demo": "parcel index-demo.html --open --no-cache",
 		"start": "parcel index.html --open --no-cache",
-		"build": "parcel build index.html --no-cache",
-		"components-link": "ln -s /Users/macbook/DEV/GitHub/ej2-fidan-ui-components/src src/ej2-fidan-ui",
+		"build": "microbundle --no-compress",
 		"yalc-link": "yalc link @fidanjs/runtime & yalc link @fidanjs/jsx & yalc link @fidanjs/babel-plugin-fidan-jsx"
 	},
 	"keywords": [],
 	"author": "ismail codar",
-	"dependencies": {
+	"dependencies": {},
+	"devDependencies": {
+		"@babel/core": "^7.7.4",
+		"@babel/plugin-syntax-jsx": "^7.7.4",
+		"@babel/plugin-transform-regenerator": "^7.7.5",
+		"@fidanjs/babel-plugin-fidan-jsx": "0.0.11",
+		"@fidanjs/router": "^0.0.10",
+		"@types/babel-traverse": "^6.25.5",
+		"@types/classnames": "^2.2.9",
+		"@types/node": "^12.12.14",
+		"babel-traverse": "^6.26.0",
+		"classnames": "^2.2.6",
+		"diff": "^4.0.1",
+		"microbundle": "0.12.0-next.6",
+		"parcel-bundler": "^1.12.4",
+		"prettier": "^1.19.1",
+		"sass": "^1.23.7",
+		"ts-node": "^8.5.4",
+		"typescript": "^3.7.2",
+		"typescript-json-schema": "^0.40.0"
+	},
+	"peerDependencies": {
+		"@fidanjs/jsx": "^0.0.12",
+		"@fidanjs/runtime": "^0.0.24",
+		"on-load": "^4.0.2",
 		"@syncfusion/ej2": "17.3.29",
 		"@syncfusion/ej2-base": "^17.3.27",
 		"@syncfusion/ej2-buttons": "^17.3.27",
@@ -42,27 +64,7 @@
 		"@syncfusion/ej2-splitbuttons": "17.3.27",
 		"@syncfusion/ej2-treemap": "17.3.27"
 	},
-	"devDependencies": {
-		"@types/babel-traverse": "^6.25.5",
-		"@types/classnames": "^2.2.9",
-		"@types/node": "^12.12.14",
-		"@babel/core": "^7.7.4",
-		"@babel/plugin-syntax-jsx": "^7.7.4",
-		"@fidanjs/router": "^0.0.10",
-		"@fidanjs/babel-plugin-fidan-jsx": "0.0.11",
-		"parcel-bundler": "^1.12.4",
-		"sass": "^1.23.7",
-		"ts-node": "^8.5.4",
-		"typescript": "^3.7.2",
-		"typescript-json-schema": "^0.40.0",
-		"diff": "^4.0.1",
-		"prettier": "^1.19.1",
-		"babel-traverse": "^6.26.0",
-		"classnames": "^2.2.6"
-	},
-	"peerDependencies": {
-		"@fidanjs/jsx": "^0.0.12",
-		"@fidanjs/runtime": "^0.0.24",
-		"on-load": "^4.0.2"
-	}
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
+	"source": "src/index.ts"
 }

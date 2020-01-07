@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 interface GenModel {
 	component: string;
@@ -220,7 +220,7 @@ Grid.Inject(Sort, Page, DetailRow);`
 	{
 		component: 'NumericTextBox',
 		imp: 'ej2-inputs',
-		...inputWithMessageProps('text', 'MaskedTextBox'),
+		...inputWithMessageProps('text', 'NumericTextBox'),
 		deferred: true
 	},
 	{
@@ -270,7 +270,7 @@ Grid.Inject(Sort, Page, DetailRow);`
           <div style="display:inline-block"> {props.title} </div>
           <span
             id="close"
-            className={props.eIconsCss || "e-icons"}
+            className={props.closeIconCss || "e-icons"}
             onClick={() => _component.hide()}
           />
         </div>
@@ -345,7 +345,7 @@ const generateComponentCode = (opt: GenModel) => {
 	if (opt.useId) {
 		view = view.replace('>', ' id={props.id || Math.random()}>');
 	}
-	if (opt.importExtra) {
+	if (opt.importExtra && opt.componentOptions) {
 		opt.importExtra += `
 import { setupComponentView } from '../_base';
     `;
@@ -375,3 +375,8 @@ compnents.forEach((cmp) => {
 	console.log(file);
 	fs.writeFileSync(file, code);
 });
+
+const exportAll = compnents.filter((cmp) => !cmp.TODO).map((cmp) => {
+	return `export { Sf${cmp.component} } from './components/${cmp.component}';`;
+});
+fs.writeFileSync(path.resolve(__dirname, '../index.ts'), exportAll.join('\n'));
