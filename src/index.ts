@@ -1,3 +1,4 @@
+export * from './_exports';
 export { SfAccordion } from './components/Accordion';
 export { SfAutoComplete } from './components/AutoComplete';
 export { SfBarcodeGenerator } from './components/BarcodeGenerator';

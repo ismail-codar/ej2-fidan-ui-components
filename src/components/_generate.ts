@@ -379,4 +379,4 @@ compnents.forEach((cmp) => {
 const exportAll = compnents.filter((cmp) => !cmp.TODO).map((cmp) => {
 	return `export { Sf${cmp.component} } from './components/${cmp.component}';`;
 });
-fs.writeFileSync(path.resolve(__dirname, '../index.ts'), exportAll.join('\n'));
+fs.writeFileSync(path.resolve(__dirname, '../index.ts'), "export * from './_exports';\n" + exportAll.join('\n'));

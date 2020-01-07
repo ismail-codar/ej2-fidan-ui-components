@@ -1,8 +1,7 @@
-import { IStateListResources } from '../../../sis/model/state-list';
 import { FidanArray } from '@fidanjs/runtime';
 import { ComponentBase } from '../_base';
 import { FormSchemaType } from '../components/complex/form/form';
-import { Column, ColumnModel } from '@syncfusion/ej2-grids';
+import { ColumnModel } from '@syncfusion/ej2-grids';
 
 export interface IFormValidation {
 	required?: boolean;

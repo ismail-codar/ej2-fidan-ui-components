@@ -1,12 +1,13 @@
 {
-	"name": "ej2-fidan-ui-components",
-	"version": "1.0.0",
+	"name": "@fidanjs/ej2-components",
+	"version": "0.0.1",
 	"description": "",
 	"scripts": {
 		"demo": "parcel index-demo.html --open --no-cache",
 		"start": "parcel index.html --open --no-cache",
 		"build": "microbundle --no-compress --no-sourcemap --target node --raw  --external @syncfusion,@fidanjs,on-load",
-		"yalc-link": "yalc link @fidanjs/runtime & yalc link @fidanjs/jsx & yalc link @fidanjs/babel-plugin-fidan-jsx"
+		"yalc-link": "yalc link @fidanjs/runtime & yalc link @fidanjs/jsx & yalc link @fidanjs/babel-plugin-fidan-jsx",
+		"local": "yarn build && yalc publish && yalc push"
 	},
 	"keywords": [],
 	"author": "ismail codar",
