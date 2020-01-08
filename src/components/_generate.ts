@@ -60,7 +60,8 @@ const compnents: GenModel[] = [
 		component: 'BarcodeGenerator',
 		imp: 'ej2-barcode-generator',
 		deferred: true,
-		useId: true
+		useId: true,
+		TODO: true
 	},
 	{
 		component: 'Button',
@@ -98,7 +99,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`,
 	},
 	{
 		component: 'CircularGauge',
-		imp: 'ej2-circulargauge'
+		imp: 'ej2-circulargauge',
+		TODO: true
 	},
 	{
 		component: 'ColorPicker',
@@ -168,7 +170,8 @@ Chart.Inject(AreaSeries, DateTime, Legend);`,
 	},
 	{
 		component: 'FileManager',
-		imp: 'ej2-filemanager'
+		imp: 'ej2-filemanager',
+		TODO: true
 	},
 	{
 		component: 'Gantt',
@@ -183,7 +186,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'HeatMap',
-		imp: 'ej2-heatmap'
+		imp: 'ej2-heatmap',
+		TODO: true
 	},
 	{
 		component: 'InPlaceEditor',
@@ -192,7 +196,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'LinearGauge',
-		imp: 'ej2-lineargauge'
+		imp: 'ej2-lineargauge',
+		TODO: true
 	},
 	{
 		component: 'ListBox',
@@ -204,7 +209,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'Maps',
-		imp: 'ej2-maps'
+		imp: 'ej2-maps',
+		TODO: true
 	},
 	{
 		component: 'MaskedTextBox',
@@ -342,7 +348,8 @@ Grid.Inject(Sort, Page, DetailRow);`
 	},
 	{
 		component: 'TreeMap',
-		imp: 'ej2-treemap'
+		imp: 'ej2-treemap',
+		TODO: true
 	},
 	{
 		component: 'Uploader',
