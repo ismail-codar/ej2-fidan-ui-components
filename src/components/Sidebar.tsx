@@ -10,7 +10,7 @@ export const SfSidebar = (props: SidebarModel & SideBarProps) => {
           <div style="display:inline-block"> {props.title} </div>
           <span
             id="close"
-            className={props.closeIconCss || "e-icons"}
+            className={props.closeIconCss || "e-icons sidebar-close"}
             onClick={() => _component.hide()}
           />
         </div>
