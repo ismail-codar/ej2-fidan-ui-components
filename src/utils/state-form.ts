@@ -92,13 +92,13 @@ export const formSchemaToDataGridColumns = <T>(schema: FormSchemaType<T>) => {
 	const columns: ColumnModel[] = [];
 	for (var key in schema) {
 		const input = schema[key];
-		if (input.hidden) {
-			continue;
-		}
 		const column: ColumnModel = {
 			field: key,
 			headerText: key
 		};
+		if (input.hidden) {
+			column.visible = false;
+		}
 		if (input.useLabelValue) {
 			if (input.listItems)
 				column.template =
