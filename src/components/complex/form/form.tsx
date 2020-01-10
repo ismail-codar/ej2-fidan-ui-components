@@ -100,7 +100,7 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 		const obj = {};
 		for (var key in values) {
 			const val = values[key]();
-			if (!schema[key].hidden) {
+			if (!schema[key].noValue) {
 				obj[key] = values[key]();
 			}
 		}

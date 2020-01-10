@@ -19,6 +19,7 @@ export interface IDataReference {
 export interface IStateFormResources<T> {
 	inputProps?: T;
 	hidden?: boolean;
+	noValue?: boolean;
 	type: 'boolean' | 'string' | 'password' | 'number' | 'integer' | 'date' | 'time' | 'datetime';
 	widgetType?:
 		| 'toggle'

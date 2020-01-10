@@ -44,7 +44,7 @@ export const setFormSchemaDefaults = (schema: FormSchemaType<any>) => {
 
 export const setFormValuesDefaults = (schema: FormSchemaType<any>, values: any) => {
 	for (var key in schema) {
-		if (!values[key]) {
+		if (!values[key] && !schema[key].noValue) {
 			values[key] = value(undefined);
 		}
 	}
