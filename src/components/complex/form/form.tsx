@@ -93,13 +93,16 @@ export const Form = (props: { data: FormModel<any> } & ComponentBase<FormCompone
 
 	props.data.fromJSON = (obj) => {
 		for (var key in values) {
-			values[key](obj[key] === undefined ? null : obj[key]);
+			values[key](obj[key]);
 		}
 	};
 	props.data.toJSON = () => {
 		const obj = {};
 		for (var key in values) {
-			obj[key] = values[key]();
+			const val = values[key]();
+			if (val !== undefined) {
+				obj[key] = values[key]();
+			}
 		}
 		return obj;
 	};
