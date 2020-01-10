@@ -23,6 +23,7 @@ export interface IStateFormResources<T> {
 	widgetType?:
 		| 'toggle'
 		| 'text'
+		| 'textarea'
 		| 'slider'
 		| 'maskedinput'
 		| 'date-picker'

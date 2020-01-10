@@ -55,6 +55,11 @@ export const formSingularInput = (props: FormGroupProps, containerId: string) =>
 			} else if (widgetType === 'daterange-picker') {
 				Component = SfDateRangePicker;
 				break;
+			} else if (widgetType === 'textarea') {
+				Component = SfTextBox;
+				inputProps.multiline = 3;
+				inputProps.rows = 3;
+				break;
 			}
 			Component = SfTextBox;
 			break;
