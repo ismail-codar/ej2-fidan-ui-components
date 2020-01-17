@@ -43,14 +43,12 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 	element.name = props.input.name;
 	dropdown.value = componentValue(props.value(), props.input.useLabelValue);
 
-	props.value.depends([
-		(val) => {
-			val = componentValue(val, props.input.useLabelValue);
-			if (val !== undefined && dropdown.value !== val) {
-				dropdown.value = val;
-			}
+	props.value.depends((val) => {
+		val = componentValue(val, props.input.useLabelValue);
+		if (val !== undefined && dropdown.value !== val) {
+			dropdown.value = val;
 		}
-	]);
+	});
 
 	dropdown.addEventListener('change', () => {
 		const propValue = props.value();
@@ -72,12 +70,10 @@ const dropdownOnInit = (props: FormGroupProps, dataSource: { value: any; label: 
 		element.dispatchEvent(new Event('focusout'));
 	});
 
-	props.input.listItems.depends([
-		(val) => {
-			dropdown.dataSource = val;
-			dataSource = dropdown.dataSource as any;
-		}
-	]);
+	props.input.listItems.depends((val) => {
+		dropdown.dataSource = val;
+		dataSource = dropdown.dataSource as any;
+	});
 };
 
 const singularListItemCheck = (
@@ -118,14 +114,12 @@ const singularListItemOnInit = (props: FormGroupProps, item: { value: any; label
 	const listItems = props.input.listItems();
 	singularListItemCheck(propValue, listItems, singularListItem);
 
-	props.value.depends([
-		(val) => {
-			val = componentValue(val, props.input.useLabelValue);
-			if (val !== undefined && val !== singularListItem.value) {
-				singularListItemCheck(val, props.input.listItems(), singularListItem);
-			}
+	props.value.depends((val) => {
+		val = componentValue(val, props.input.useLabelValue);
+		if (val !== undefined && val !== singularListItem.value) {
+			singularListItemCheck(val, props.input.listItems(), singularListItem);
 		}
-	]);
+	});
 
 	singularListItem.addEventListener('change', ({ event }) => {
 		const target: HTMLInputElement = event.target;
