@@ -13,7 +13,7 @@ export type FormSchemaType<T> = { [key in keyof T]: IStateFormResources<any> };
 export interface FormModel<T> {
 	schema: FormSchemaType<T>;
 	// values?: { [key in keyof T]?: FidanValue<T[keyof T]> };
-	values?: { [key in keyof T]?: FidanValue<any> };
+	values: { [key in keyof T]?: FidanValue<any> };
 	fromJSON?: (
 		values: {
 			[key in keyof T]?:
